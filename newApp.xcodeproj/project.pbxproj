@@ -12,6 +12,8 @@
 		701E8EA129188D6800C7B744 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E8EA029188D6800C7B744 /* UserData.swift */; };
 		701E8EA329188D9B00C7B744 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E8EA229188D9B00C7B744 /* DataLoader.swift */; };
 		701E8EA72918964C00C7B744 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 701E8EA62918964C00C7B744 /* Data.json */; };
+		E34856C029A70E26009640D2 /* SocketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34856BF29A70E26009640D2 /* SocketTest.swift */; };
+		E34856C329A71151009640D2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = E34856C229A71151009640D2 /* SocketIO */; };
 		EF10047F2913088400289C69 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10047E2913088400289C69 /* QuizView.swift */; };
 		EF55FC7A28E3891300AC9375 /* newAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55FC7928E3891300AC9375 /* newAppApp.swift */; };
 		EF55FC7C28E3891300AC9375 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55FC7B28E3891300AC9375 /* LogIn.swift */; };
@@ -46,6 +48,7 @@
 		701E8EA029188D6800C7B744 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		701E8EA229188D9B00C7B744 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		701E8EA62918964C00C7B744 /* Data.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = Data.json; sourceTree = "<group>"; };
+		E34856BF29A70E26009640D2 /* SocketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketTest.swift; sourceTree = "<group>"; };
 		EF10047E2913088400289C69 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		EF55FC7628E3891300AC9375 /* newApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55FC7928E3891300AC9375 /* newAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newAppApp.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 			files = (
 				701E8E9729187AE800C7B744 /* RealmSwift in Frameworks */,
 				701E8E9529187AE800C7B744 /* Realm in Frameworks */,
+				E34856C329A71151009640D2 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +129,7 @@
 				EF55FC8028E3891500AC9375 /* Preview Content */,
 				701E8EA029188D6800C7B744 /* UserData.swift */,
 				701E8EA229188D9B00C7B744 /* DataLoader.swift */,
+				E34856BF29A70E26009640D2 /* SocketTest.swift */,
 			);
 			path = newApp;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			packageProductDependencies = (
 				701E8E9429187AE800C7B744 /* Realm */,
 				701E8E9629187AE800C7B744 /* RealmSwift */,
+				E34856C229A71151009640D2 /* SocketIO */,
 			);
 			productName = newApp;
 			productReference = EF55FC7628E3891300AC9375 /* newApp.app */;
@@ -248,6 +254,7 @@
 			mainGroup = EF55FC6D28E3891300AC9375;
 			packageReferences = (
 				701E8E9329187AE800C7B744 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				E34856C129A71151009640D2 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = EF55FC7728E3891300AC9375 /* Products */;
 			projectDirPath = "";
@@ -297,6 +304,7 @@
 				EF55FC7C28E3891300AC9375 /* LogIn.swift in Sources */,
 				701E8EA329188D9B00C7B744 /* DataLoader.swift in Sources */,
 				EF55FC7A28E3891300AC9375 /* newAppApp.swift in Sources */,
+				E34856C029A70E26009640D2 /* SocketTest.swift in Sources */,
 				EF10047F2913088400289C69 /* QuizView.swift in Sources */,
 				EF55FCA928E60EE600AC9375 /* ViewController.swift in Sources */,
 				EF55FCA528E600BE00AC9375 /* newPage1.swift in Sources */,
@@ -661,6 +669,14 @@
 				kind = branch;
 			};
 		};
+		E34856C129A71151009640D2 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -673,6 +689,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 701E8E9329187AE800C7B744 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		E34856C229A71151009640D2 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34856C129A71151009640D2 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
