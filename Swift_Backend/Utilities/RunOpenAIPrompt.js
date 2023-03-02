@@ -4,7 +4,7 @@ require('dotenv').config()
 const url = 'https://api.openai.com/v1/completions';
 
 const max_tokens = 50;
-const n = 2;
+const n = 1;
 
 const OPENAI_API_KEY = `${process.env.OPENAI_API_KEY}`;
 
@@ -13,7 +13,7 @@ const headers = {
     'Content-Type': 'application/json'
 }
 
-exports.getTextResponse = async (promptQuestion) => {
+exports.getTextResponse = async (promptQuestion, callback) => {
     const prompt = promptQuestion
     axios.post(url, {
         prompt: prompt,
@@ -24,7 +24,8 @@ exports.getTextResponse = async (promptQuestion) => {
     {
         headers: headers
     }).then(response => {
-        console.log(response.data.choices)
+        console.log(response.data.choices[0].text)
+        callback(response.data.choices[0].text)
     }).catch(error => {
         console.log(error)
     })

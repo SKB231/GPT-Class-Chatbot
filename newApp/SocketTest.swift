@@ -27,6 +27,7 @@ final class Service: ObservableObject {
                 (data, ack) in
                 self.connected = true
                 print(dump(data))
+                
                 if let data = data[0] as? [String: String],
                    let rawMessage = data["msg"] {
                     DispatchQueue.main.async {
@@ -48,25 +49,32 @@ struct SocketTest : View {
     @State private var currentMessage : String = ""
     var body: some View {
         VStack {
-            TextField("Username", text: $currentMessage)
-                .padding()
-                .frame(width: 300, height: 50)
-                .background(Color.black.opacity(0.05))
-                .cornerRadius(10)
-            Button("Send Message") {
-                service.socket.emit("NodeJS Server Port", currentMessage)
-            }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.orange)
-            .cornerRadius(10)
-
-            Text("Recieved messages from Node.js: ")
-                .font(.largeTitle)
             ForEach(service.messages, id: \.self) {
                 msg in
                 Text(msg).padding()
             }
+            
+            HStack {
+                TextField("Enter your message", text: $currentMessage)
+                    .padding()
+                    .frame(width: 300, height: 50)
+                    .background(Color.black.opacity(0.05))
+                    .cornerRadius(10)
+                Button(action: {
+                    service.socket.emit("NodeJS Server Port", currentMessage);
+                    currentMessage = "";
+                    
+                }) {
+                    Image(systemName: "paperplane.fill")
+                    
+                }
+                .foregroundColor(.white)
+                .frame(width: 50, height: 50)
+                .background(Color.orange)
+                .cornerRadius(10)
+            }
+            
+
         }
     }
 }
