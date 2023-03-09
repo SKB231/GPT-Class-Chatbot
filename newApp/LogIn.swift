@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import GoogleSignIn
+import Firebase
+
 let ques = DataLoader().userData
 
 struct LogIn: View {
@@ -15,7 +19,7 @@ struct LogIn: View {
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
     @State private var goRegister = false
-
+    @State private var showChatScreen = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -72,6 +76,51 @@ struct LogIn: View {
                     .cornerRadius(10)
                     
                     NavigationLink(destination: Register(), isActive: $goRegister) {
+                        EmptyView()
+                    }
+                    
+                    Text("OR")
+                    
+                    Button("Login with Google") {
+                        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+                        // Create Google Sign In configuration object.
+                        let config = GIDConfiguration(clientID: clientID)
+                        GIDSignIn.sharedInstance.configuration = config
+
+                        // Start the sign in flow!
+                        GIDSignIn.sharedInstance.signIn(withPresenting: getRootViewController()) { result, error in
+                          guard error == nil else {
+                            // ...
+                              return
+                          }
+//
+                          guard let user = result?.user,
+                            let idToken = user.idToken?.tokenString
+                          else {
+                            return
+                          }
+
+                          let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+                            // Use the credential provided by the GoogleAuth to authenticate the user officially.
+                            Auth.auth().signIn(with: credential) {result, error in
+                                guard error == nil else {
+                                    // TODO - MANAGE ERROR
+                                    return
+                                }
+                                
+                                print("User Signed In");
+                                self.showChatScreen = true
+                            }
+                            
+                          // ...
+                        }
+                    }
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 50)
+                    .background(Color.orange)
+                    .cornerRadius(10)
+                    NavigationLink(destination: SocketTest(), isActive: $showChatScreen) {
                         EmptyView()
                     }
                 }
