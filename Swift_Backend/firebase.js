@@ -7,15 +7,27 @@ initializeApp({
 });
 
 const db = getFirestore();
+let queries = db.collection('queries')
 
 function storeQuery(query) {
-    let queries = db.collection('queries')
-    queries.add(query)
+  queries.add(query)
 }
 
-storeQuery({
-    query: "this query was made remotely",
-    response: "firebase is cool",
-    time: FieldValue.serverTimestamp(),
-    user: "admin"
-})
+function storeQuery(user, query, response) {
+    queries.add({
+      query: query,
+      response: response,
+      time: FieldValue.serverTimestamp(),
+      user: user
+  })
+}
+
+async function getUserQueries(user) {
+    userQueries = await queries.where('user', '==', user).get()
+    return userQueries
+}
+
+storeQuery("admin", "this query was made remotely", "firebase is cool")
+
+a = getQueries("admin")
+console.log(a) // A promise
