@@ -27,7 +27,28 @@ async function getUserQueries(user) {
     return userQueries
 }
 
-storeQuery("admin", "this query was made remotely", "firebase is cool")
+async function deleteUserQueries(user) {
+    userQueries = await queries.where('user', '==', user).get() 
+    const batchSize = userQueries.size;
+    if (batchSize === 0) {
+      // when there are no documents left, we are done
+      resolve();
+      return;
+    }
+    const batch = db.batch();
+    userQueries.docs.forEach((doc) => { // executes only after above line of code
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
+}
 
-a = getQueries("admin")
-console.log(a) // A promise
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
+async function test() {
+  await delay(1000);
+  console.log(a);
+}
+
+test();
