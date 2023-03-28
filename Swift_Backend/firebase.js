@@ -60,6 +60,7 @@ function autocomplete(input, sort='length', num=20) {
     var pattern_matches = data.filter(d => d.question.search(pattern) >= 0)
     top_suggestions_2 = pattern_matches.sort((a, b) => custom_sort(a, b, sort))
     top_suggestions = top_suggestions.concat(top_suggestions_2)
+    top_suggestions = top_suggestions.filter((item, idx) => top_suggestions.indexOf(item) == idx)
     return top_suggestions.splice(0, num)
 }
 
