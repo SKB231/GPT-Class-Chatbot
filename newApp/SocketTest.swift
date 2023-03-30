@@ -11,7 +11,8 @@ import SocketIO
 
 final class Service: ObservableObject {
     private var manager = SocketManager(socketURL: URL(string: "ws://localhost:3000")!, config:[.log(true), .compress])
-    @Published var messages = [String]()
+    @Published var messages = [ChatMessage]()
+    @Published var promtResults = [String]()
     public var socket : SocketIOClient
     public var connected : Bool = false
     
@@ -19,19 +20,43 @@ final class Service: ObservableObject {
         socket = manager.defaultSocket
         print("creating the event handler for the connect event:");
         socket.on(clientEvent: .connect) {
+
             (data, ack) in
             
-            print("Connected")
+            self.messages.append(ChatMessage.getChatMessage(stringMessage: "Socket is connected!", sender: MessageSender.gpt));
+            self.connected = true
             
-            self.socket.on("iOS Client Port") {
+            //Function to handle socket event where the Server sends back the Autocomplete response:
+            self.socket.on("RecieveAutoCompleteResponse") {
                 (data, ack) in
-                self.connected = true
+                // Recieving data in the form of: [QuestionObject 1, QuestionObject 2, QuestionObject 3, ...], where each QuestionObject has question, chapter, frequency, ...
+                print("recieved something! 0")
+                print(dump(data))
+                print(dump(data[0]))
+                if let messages = data[0] as? [[String: Any]] {
+                    self.promtResults.removeAll()
+                    print("recieved something! 1")
+                    for message in messages {
+                        let question = message["question"] as? String ?? "Undefined"
+                        self.promtResults.append(question)
+                    }
+                }
+                
+            }
+            
+            
+            // Function to handle the socket event where the GPT sends back a response to a message that the user had sent
+            self.socket.on("RecieveMessageResponse") {
+                (data, ack) in
                 print(dump(data))
                 
-                if let data = data[0] as? [String: String],
-                   let rawMessage = data["msg"] {
+                if let messageContentData = data[0] as? [String: String], let rawMessage = messageContentData["msg"], let newMessageSender = messageContentData["sender"]{
                     DispatchQueue.main.async {
-                        self.messages.append(rawMessage)
+                        if newMessageSender == "GPT" {
+                            self.addMessage(newMessage: rawMessage, sender: MessageSender.gpt)
+                        } else {
+                            self.addMessage(newMessage: rawMessage, sender: MessageSender.user)
+                        }
                     }
                 }
             }
@@ -40,6 +65,23 @@ final class Service: ObservableObject {
         
         socket.connect()
     }
+    
+    public func addMessage(newMessage: String, sender: MessageSender) {
+        self.messages.append(ChatMessage.getChatMessage(stringMessage: newMessage, sender: sender))
+    }
+    public func printMessageArray() {
+        for message in self.messages {
+            print(message.content , " by " , message.sender , " at " , message.date)
+        }
+    }
+    
+    public func clearAllMessages() {
+        self.messages.removeAll()
+    }
+    
+    public func clearAllPromts() {
+        self.promtResults.removeAll()
+    }
 }
 
 
@@ -47,40 +89,172 @@ final class Service: ObservableObject {
 struct SocketTest : View {
     @ObservedObject var service = Service()
     @State private var currentMessage : String = ""
+    
+    @State var chatMessages: [ChatMessage] = []
+    //Keeping tack of messagText in textField
+    @State var messageText: String = ""
+    @State var useGPT: Bool = false
+
     var body: some View {
         VStack {
-            ForEach(service.messages, id: \.self) {
-                msg in
-                Text(msg).padding()
-            }
-            
-            HStack {
-                TextField("Enter your message", text: $currentMessage)
-                    .padding()
-                    .frame(width: 300, height: 50)
-                    .background(Color.black.opacity(0.05))
-                    .cornerRadius(10)
-                Button(action: {
-                    service.socket.emit("NodeJS Server Port", currentMessage);
-                    currentMessage = "";
-                    
-                }) {
-                    Image(systemName: "paperplane.fill")
-                    
+            ScrollView{
+                LazyVStack {
+                    ForEach(service.messages, id: \.id) { message in
+                        messageView(message: message)
+                    }
                 }
-                .foregroundColor(.white)
-                .frame(width: 50, height: 50)
-                .background(Color.orange)
-                .cornerRadius(10)
             }
-            
+
+            //Message textField
+            HStack{
+                Button{
+                    //Set on Action function
+                    toggleGPTTag()
+                }label:{
+                    Text("useGPT")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(useGPT ? .green : .red)
+                        .cornerRadius(12)
+                }
+                TextField("Enter a mesage", text: $currentMessage){
+                }
+                    .padding()
+                    .background(.gray.opacity(0.1))
+                    .cornerRadius(12)
+        
+                //Send button
+                Button{
+                    //Set on Action function
+                    sendMessage()
+                }label:{
+                    Text("Send")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(12)
+                }
+                Button{
+                    //Set on Action function
+                    clearMessage()
+                }label:{
+                    Text("X")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(.red)
+                        .cornerRadius(12)
+                }
+            }
+
 
         }
+        .padding()
     }
+    
+    
+    //Textbox
+    func messageView(message: ChatMessage) -> some View {
+        HStack{
+            if message.sender == .user {Spacer() }
+            Text(message.content)
+                .foregroundColor(message.sender == .user ? .white : .black)
+                .padding()
+                .background(message.sender == .user ? .blue : .gray.opacity(0.1))
+                .cornerRadius(16)
+            if message.sender == .gpt {Spacer() }
+        }
+    }
+    
+    //Send button set on Action
+    func sendMessage(){
+        service.addMessage(newMessage: currentMessage, sender: MessageSender.user)
+        if service.connected == false {
+            sendFakeGPTMessage(message: "Message was not recieved. Wait for connection to Socket.")
+        } else {
+            if useGPT == true{
+                service.socket.emit("RecieveUserMessage", ("/useGPT "+currentMessage))
+            } else {
+                print("Hlwjehwrg")
+                service.socket.emit("RecieveUserMessage", (currentMessage))
+
+            }
+        }
+        currentMessage = ""
+    }
+    
+    
+    func toggleGPTTag() {
+        useGPT = !useGPT
+    }
+    
+    func sendFakeGPTMessage(message: String) {
+        service.addMessage(newMessage: message, sender: MessageSender.gpt)
+    }
+    
+    func clearMessage(){
+        service.clearAllMessages()
+    }
+}
+
+struct AutoCompleteTest: View {
+    @ObservedObject var service = Service()
+    @State private var currentMessage : String = ""
+    var body: some View {
+        VStack {
+            ScrollView{
+                LazyVStack {
+                    ForEach(service.promtResults, id: \.self) { result in
+                        Text(result)
+                            .padding()
+                            .background(.gray)
+                    }
+                }
+            }
+            //Message textField
+            HStack{
+                TextField("Enter Autocomplete PROMT", text: $currentMessage){
+                }
+                    .padding()
+                    .background(.gray.opacity(0.1))
+                    .cornerRadius(12)
+            }
+        }
+        .padding()
+        .onChange(of: self.currentMessage) { newValue in
+            if newValue == "" {
+                service.clearAllPromts()
+            } else {
+                sendPromt()
+            }
+        }
+    }
+    
+    func sendPromt() {
+        service.socket.emit("RecieveAutoCompleteRequest", currentMessage)
+    }
+    
 }
 
 struct Previews_SocketTest_Previews: PreviewProvider {
     static var previews: some View {
-        SocketTest()
+        AutoCompleteTest()
     }
+}
+
+
+public struct ChatMessage {
+    let id: String
+    let content: String
+    let date: Date
+    let sender: MessageSender
+    
+    public static func getChatMessage(stringMessage: String, sender: MessageSender) -> ChatMessage {
+        let message = ChatMessage(id: UUID().uuidString, content: stringMessage, date: Date(), sender: sender)
+        return message
+    }
+}
+
+public enum MessageSender{
+    case user
+    case gpt
 }

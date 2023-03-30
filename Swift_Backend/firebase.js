@@ -45,7 +45,7 @@ async function getUserQueries(user) {
 
 var data = require('./original_mock_data.json')
 
-function autocomplete(input, sort='length', num=20) {
+exports.autocomplete = (input, sort='length', num=20) => {
     if (data == null) {
         return []
     }
@@ -87,5 +87,3 @@ function delay(time) {
 async function test() {
    console.log(autocomplete('what command'))
 }
-
-test();
