@@ -1,9 +1,3 @@
-//
-//  SocketTest.swift
-//  newApp
-//
-//  Created by Shreekrishna R Bhat on 2/22/23.
-//
 
 import Foundation
 import SwiftUI
@@ -44,7 +38,6 @@ final class Service: ObservableObject {
                 
             }
             
-            
             // Function to handle the socket event where the GPT sends back a response to a message that the user had sent
             self.socket.on("RecieveMessageResponse") {
                 (data, ack) in
@@ -62,8 +55,12 @@ final class Service: ObservableObject {
             }
                     
         }
-        
         socket.connect()
+    }
+    
+    public func attemptSocketConnection() {
+        socket.connect()
+    
     }
     
     public func addMessage(newMessage: String, sender: MessageSender) {
@@ -89,11 +86,12 @@ final class Service: ObservableObject {
 struct SocketTest : View {
     @ObservedObject var service = Service()
     @State private var currentMessage : String = ""
-    
     @State var chatMessages: [ChatMessage] = []
     //Keeping tack of messagText in textField
     @State var messageText: String = ""
+    
     @State var useGPT: Bool = false
+    @State private var showSuggestions = false
 
     var body: some View {
         VStack {
@@ -104,40 +102,60 @@ struct SocketTest : View {
                     }
                 }
             }
+            
+            if showSuggestions {
+                List(service.promtResults, id: \.self) { suggestion in
+                    Text(suggestion)
+                    
+                    //set on Action
+                    //Still need to mak it expand upwards
+                        .onTapGesture {
+                            currentMessage = suggestion
+                            showSuggestions = false
+                            // enter fucntion/function body here
+                            
+                        }
+                }
+                .frame(maxHeight: 200)
+                .listStyle(.sidebar)
+            
+            }
 
-            //Message textField
-            HStack{
-                Button{
-                    //Set on Action function
+            HStack {
+                Button {
                     toggleGPTTag()
-                }label:{
-                    Text("useGPT")
-                        .foregroundColor(.white)
+                } label: {
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 22, height: 22) // set the appropriate size
                         .padding()
-                        .background(useGPT ? .green : .red)
+                        .background(useGPT ? .blue : .red)
                         .cornerRadius(12)
                 }
-                TextField("Enter a mesage", text: $currentMessage){
+                
+                TextField("Enter a message", text: $currentMessage)
+                .onChange(of: currentMessage) { value in
+                    showSuggestions = !currentMessage.isEmpty
                 }
-                    .padding()
-                    .background(.gray.opacity(0.1))
-                    .cornerRadius(12)
-        
-                //Send button
-                Button{
-                    //Set on Action function
-                    sendMessage()
-                }label:{
-                    Text("Send")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(12)
-                }
-                Button{
-                    //Set on Action function
+                .padding()
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(12)
+                .overlay(
+                   
+                    HStack {
+                        Spacer()
+                        Button(action: sendMessage) {
+                            Image(systemName: "paperplane.fill")
+                                .foregroundColor(.blue)
+                                .background(Color.gray.opacity(0.0))
+                                .padding()
+                        }
+                        .frame(width: 50, height: 100)
+                    }
+                )
+                Button {
                     clearMessage()
-                }label:{
+                } label: {
                     Text("X")
                         .foregroundColor(.white)
                         .padding()
@@ -145,12 +163,17 @@ struct SocketTest : View {
                         .cornerRadius(12)
                 }
             }
-
-
+            .padding(.horizontal)
         }
         .padding()
+        .onChange(of: self.currentMessage) { newValue in
+            if newValue == "" {
+                service.clearAllPromts()
+            } else {
+                sendPromt()
+            }
+        }
     }
-    
     
     //Textbox
     func messageView(message: ChatMessage) -> some View {
@@ -169,7 +192,8 @@ struct SocketTest : View {
     func sendMessage(){
         service.addMessage(newMessage: currentMessage, sender: MessageSender.user)
         if service.connected == false {
-            sendFakeGPTMessage(message: "Message was not recieved. Wait for connection to Socket.")
+            sendFakeGPTMessage(message: "Message was not recieved. Wait for connection to Socket, attempting socket connection again: ")
+            service.attemptSocketConnection()
         } else {
             if useGPT == true{
                 service.socket.emit("RecieveUserMessage", ("/useGPT "+currentMessage))
@@ -182,6 +206,9 @@ struct SocketTest : View {
         currentMessage = ""
     }
     
+    func sendPromt() {
+        service.socket.emit("RecieveAutoCompleteRequest", currentMessage)
+    }
     
     func toggleGPTTag() {
         useGPT = !useGPT
@@ -196,51 +223,11 @@ struct SocketTest : View {
     }
 }
 
-struct AutoCompleteTest: View {
-    @ObservedObject var service = Service()
-    @State private var currentMessage : String = ""
-    var body: some View {
-        VStack {
-            ScrollView{
-                LazyVStack {
-                    ForEach(service.promtResults, id: \.self) { result in
-                        Text(result)
-                            .padding()
-                            .background(.gray)
-                    }
-                }
-            }
-            //Message textField
-            HStack{
-                TextField("Enter Autocomplete PROMT", text: $currentMessage){
-                }
-                    .padding()
-                    .background(.gray.opacity(0.1))
-                    .cornerRadius(12)
-            }
-        }
-        .padding()
-        .onChange(of: self.currentMessage) { newValue in
-            if newValue == "" {
-                service.clearAllPromts()
-            } else {
-                sendPromt()
-            }
-        }
-    }
-    
-    func sendPromt() {
-        service.socket.emit("RecieveAutoCompleteRequest", currentMessage)
-    }
-    
-}
-
 struct Previews_SocketTest_Previews: PreviewProvider {
     static var previews: some View {
-        AutoCompleteTest()
+        SocketTest()
     }
 }
-
 
 public struct ChatMessage {
     let id: String

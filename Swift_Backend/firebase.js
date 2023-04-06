@@ -49,7 +49,7 @@ exports.autocomplete = (input, sort='length', num=20) => {
     if (data == null) {
         return []
     }
-
+    
     var prefix = new RegExp(`^${input}`, 'i')
     var pattern = new RegExp(`${input}`, 'i')
     var prefix_matches = data.filter(d => d.question.search(prefix) >= 0)

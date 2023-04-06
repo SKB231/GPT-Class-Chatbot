@@ -120,7 +120,7 @@ struct LogIn: View {
                     .frame(width: 300, height: 50)
                     .background(Color.orange)
                     .cornerRadius(10)
-                    NavigationLink(destination: AutoCompleteTest(), isActive: $showChatScreen) {
+                    NavigationLink(destination: SocketTest(), isActive: $showChatScreen) {
                         EmptyView()
                     }
                 }
