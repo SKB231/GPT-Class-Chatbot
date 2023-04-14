@@ -1,6 +1,7 @@
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 const serviceAccount = require('./service-key.json');
+const fs = require('fs')
 
 initializeApp({
   credential: cert(serviceAccount)
@@ -53,8 +54,8 @@ function cacheContext(id, compact_context) {
 function incrementFrequency(query) {
     try {
         query_to_data[query]['frequency'] += 1;
-    } catch {
-        console.log('Error in incrementing frequency')
+    } catch (err) {
+        console.log()
     }
 }
 
@@ -63,7 +64,7 @@ var data = require('./mock_data.json')
 var query_to_data = {}
 
 for (i in data) {
-    query_to_data[i['question']] = i;
+    query_to_data[data[i]['question']] = data[i];
 }
 
 exports.autocomplete = (input, sort='length', num=20) => {
@@ -112,7 +113,8 @@ function custom_sort(a, b, sort='length') {
 }
 
 function storeJson() {
-    fs.writeFile("mock_data.json", JSON.stringify(data), function(err) {
+    if (!data) return
+    fs.writeFileSync("mock_data.json", JSON.stringify(data, null, 4), function(err) {
         if (err) {
             console.log(err);
         }
