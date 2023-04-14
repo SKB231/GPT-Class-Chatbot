@@ -50,15 +50,21 @@ function cacheContext(id, compact_context) {
     
 }
 
-function incrementFrequency(top_suggestions) {
+function incrementFrequency(query) {
     try {
-        top_suggestions['frequency'] += 1;
+        query_to_data[query]['frequency'] += 1;
     } catch {
         console.log('Error in incrementing frequency')
     }
 }
 
-var data = require('./original_mock_data.json')
+var data = require('./mock_data.json')
+
+var query_to_data = {}
+
+for (i in data) {
+    query_to_data[i['question']] = i;
+}
 
 exports.autocomplete = (input, sort='length', num=20) => {
     if (data == null) {
@@ -105,6 +111,12 @@ function custom_sort(a, b, sort='length') {
     }
 }
 
-function test() {
-   console.log(autocomplete('what command'))
+function storeJson() {
+    fs.writeFile("mock_data.json", JSON.stringify(data), function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
 }
+
+process.on('exit', storeJson);
