@@ -91,7 +91,7 @@ function countWords(str) {
 
 function custom_sort(a, b, sort='length') {
     if (sort == 'length') {
-        weight = (countWords(a["question"].length) - countWords(b["question"].length))
+        weight = (countWords(a["question"]) - countWords(b["question"]))
         if (weight == 0) {
             weight = (b["frequency"] - a["frequency"]) / 100
         }
