@@ -139,7 +139,6 @@
 		EF55FC7828E3891300AC9375 /* newApp */ = {
 			isa = PBXGroup;
 			children = (
-				E3B80AAB29DEF0C0006544CB /* logo.png */,
 				E36DFB6029BA2CC2008A6A23 /* Info.plist */,
 				E36DFB5A29BA2B7A008A6A23 /* JHelper */,
 				E36DFB5529BA2A95008A6A23 /* GoogleService-Info.plist */,
@@ -151,6 +150,7 @@
 				EF55FCA428E600BE00AC9375 /* newPage1.swift */,
 				EF55FCA628E60C8D00AC9375 /* Storyboard.storyboard */,
 				EF55FC7D28E3891500AC9375 /* Assets.xcassets */,
+				E3B80AAB29DEF0C0006544CB /* logo.png */,
 				EF55FC7F28E3891500AC9375 /* newApp.entitlements */,
 				EF55FC8028E3891500AC9375 /* Preview Content */,
 				701E8EA029188D6800C7B744 /* UserData.swift */,

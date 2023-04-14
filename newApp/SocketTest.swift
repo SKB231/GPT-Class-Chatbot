@@ -113,6 +113,7 @@ struct SocketTest : View {
                             currentMessage = suggestion
                             showSuggestions = false
                             // enter fucntion/function body here
+                            service.clearAllPromts()
                             
                         }
                 }
