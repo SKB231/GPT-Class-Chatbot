@@ -60,7 +60,7 @@ function incrementFrequency(top_suggestions) {
 
 var data = require('./original_mock_data.json')
 
-function autocomplete(input, sort='length', num=20) {
+exports.autocomplete = (input, sort='length', num=20) => {
     if (data == null) {
         return []
     }
@@ -108,5 +108,3 @@ function custom_sort(a, b, sort='length') {
 function test() {
    console.log(autocomplete('what command'))
 }
-
-test();

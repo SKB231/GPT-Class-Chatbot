@@ -1,7 +1,8 @@
+const {autocomplete} = require("./firebase")
 require("dotenv").config();
 const io = require("socket.io")(3000);
 
-const { getTextResponse } = require("./Utilities/RunOpenAIPrompt");
+const Chat = require("./Utilities/RunOpenAIPrompt");
 
 const connections = [];
 
@@ -9,11 +10,21 @@ io.on("connection", (socket) => {
   connections.push(socket);
   console.log("%s sockets are connected.", connections.length);
 
+  let chatInstance = new Chat()
+
   socket.on("disconnect", () => {
     connections.splice(connections.indexOf(socket), 1);
   });
 
-  socket.on("NodeJS Server Port", async (data) => {
+  socket.on("RecieveAutoCompleteRequest", async (data) => {
+    if(data.length < 100) {
+      io.emit("RecieveAutoCompleteResponse", autocomplete(data));
+    } else {
+      return {}
+    }
+  })
+
+  socket.on("RecieveUserMessage", async (data) => {
     console.log("Recieved message: " + data);
     const matchParam = /^\/(\w+)/;
     const matchMessage = /^\/\w+\s+(\w+)/;
@@ -22,11 +33,11 @@ io.on("connection", (socket) => {
     let returnMessage = "";
     if (match && match[1] === "useGPT" && data.match(matchMessage)) {
       const message = data.substring(data.indexOf(' ') + 1);
-      io.emit("iOS Client Port", { msg: "User: " + message });
-      getTextResponse(message, callback)
+      chatInstance.addMessage("user", message);
+      chatInstance.getTextResponse(callback)
     } else {
       returnMessage = data;
-      io.emit("iOS Client Port", { msg: "User: " + data });
+      io.emit("RecieveMessageResponse", { msg: "Recieved Message", "sender": "GPT" });
     }
   });
 });
@@ -34,7 +45,8 @@ io.on("connection", (socket) => {
 
 
 callback = (outputMessage) => {
-  io.emit("iOS Client Port", { msg: "Server: " + outputMessage });
+  console.log(outputMessage)
+  io.emit("RecieveMessageResponse", { "msg": outputMessage, "sender": "GPT" });
 };
 
 console.log("Server is running...");

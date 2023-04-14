@@ -19,6 +19,7 @@
 		E36DFB5C29BA2BAE008A6A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36DFB5B29BA2BAE008A6A23 /* AppDelegate.swift */; };
 		E36DFB5F29BA2C26008A6A23 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E36DFB5E29BA2C26008A6A23 /* GoogleSignIn */; };
 		E36DFB6229BA3176008A6A23 /* +View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36DFB6129BA3176008A6A23 /* +View.swift */; };
+		E3B80AAC29DEF0C0006544CB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B80AAB29DEF0C0006544CB /* logo.png */; };
 		EF10047F2913088400289C69 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10047E2913088400289C69 /* QuizView.swift */; };
 		EF55FC7A28E3891300AC9375 /* newAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55FC7928E3891300AC9375 /* newAppApp.swift */; };
 		EF55FC7C28E3891300AC9375 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF55FC7B28E3891300AC9375 /* LogIn.swift */; };
@@ -58,6 +59,7 @@
 		E36DFB5B29BA2BAE008A6A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E36DFB6029BA2CC2008A6A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E36DFB6129BA3176008A6A23 /* +View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+View.swift"; sourceTree = "<group>"; };
+		E3B80AAB29DEF0C0006544CB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		EF10047E2913088400289C69 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		EF55FC7628E3891300AC9375 /* newApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF55FC7928E3891300AC9375 /* newAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newAppApp.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				EF55FCA428E600BE00AC9375 /* newPage1.swift */,
 				EF55FCA628E60C8D00AC9375 /* Storyboard.storyboard */,
 				EF55FC7D28E3891500AC9375 /* Assets.xcassets */,
+				E3B80AAB29DEF0C0006544CB /* logo.png */,
 				EF55FC7F28E3891500AC9375 /* newApp.entitlements */,
 				EF55FC8028E3891500AC9375 /* Preview Content */,
 				701E8EA029188D6800C7B744 /* UserData.swift */,
@@ -302,6 +305,7 @@
 				EF55FC8228E3891500AC9375 /* Preview Assets.xcassets in Resources */,
 				EF55FC7E28E3891500AC9375 /* Assets.xcassets in Resources */,
 				E36DFB5629BA2A95008A6A23 /* GoogleService-Info.plist in Resources */,
+				E3B80AAC29DEF0C0006544CB /* logo.png in Resources */,
 				EF55FCA728E60C8D00AC9375 /* Storyboard.storyboard in Resources */,
 				701E8EA72918964C00C7B744 /* Data.json in Resources */,
 			);
