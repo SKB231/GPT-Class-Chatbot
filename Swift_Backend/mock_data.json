@@ -18,7 +18,7 @@
     {
         "question": "what command returns text information in the command window?",
         "chapter": "Chapter_-1_Section_0",
-        "frequency": 1,
+        "frequency": 3,
         "time_stamp": 47,
         "answer_start": 273,
         "answer_end": 285
@@ -576,7 +576,7 @@
         "answer_end": -1
     },
     {
-        "question": "what produces the \u201clollipop\u201d presentation of the same data?",
+        "question": "what produces the “lollipop” presentation of the same data?",
         "chapter": "Chapter_-1_Section_2",
         "frequency": 1,
         "time_stamp": 38,
@@ -1632,7 +1632,7 @@
         "answer_end": 906
     },
     {
-        "question": "what is %\u2013 pointwise multiply by mask, mx?",
+        "question": "what is %– pointwise multiply by mask, mx?",
         "chapter": "Chapter_-1_Section_6",
         "frequency": 1,
         "time_stamp": 67,
@@ -2600,7 +2600,7 @@
         "answer_end": 452
     },
     {
-        "question": "what are complex numbers plotted as vectors in the two-dimensional \u201ccomplex plane\u201d?",
+        "question": "what are complex numbers plotted as vectors in the two-dimensional “complex plane”?",
         "chapter": "Chapter_-2_Section_1",
         "frequency": 4,
         "time_stamp": 117,
@@ -2776,7 +2776,7 @@
         "answer_end": 1747
     },
     {
-        "question": "most \u201cscientific\u201d calculators even have the capability to use which notation?",
+        "question": "most “scientific” calculators even have the capability to use which notation?",
         "chapter": "Chapter_-2_Section_3",
         "frequency": 1,
         "time_stamp": 92,
@@ -3208,7 +3208,7 @@
         "answer_end": 55
     },
     {
-        "question": "the \u201chead-to-tail\u201d graphical method is illustrated in what?",
+        "question": "the “head-to-tail” graphical method is illustrated in what?",
         "chapter": "Chapter_-2_Section_4",
         "frequency": 1,
         "time_stamp": 102,
@@ -4240,7 +4240,7 @@
         "answer_end": 1991
     },
     {
-        "question": "what would logically be termed a \u201csquarer system\u201d?",
+        "question": "what would logically be termed a “squarer system”?",
         "chapter": "Chapter_1_Section_1",
         "frequency": 1,
         "time_stamp": 55,
@@ -4248,7 +4248,7 @@
         "answer_end": 1744
     },
     {
-        "question": "what can be termed a \u201csquarer system\u201d?",
+        "question": "what can be termed a “squarer system”?",
         "chapter": "Chapter_1_Section_1",
         "frequency": 1,
         "time_stamp": 24,
@@ -4984,7 +4984,7 @@
         "answer_end": 1903
     },
     {
-        "question": "what do we \u201cclose the loop\u201d by computing from?",
+        "question": "what do we “close the loop” by computing from?",
         "chapter": "Chapter_10_Section_0",
         "frequency": 6,
         "time_stamp": 84,
@@ -8256,7 +8256,7 @@
         "answer_end": -1
     },
     {
-        "question": "what is the framework for using the basic properties of <unk> -transform<unk>s together with a few basic \u2013transform pairs to perform?",
+        "question": "what is the framework for using the basic properties of <unk> -transform<unk>s together with a few basic –transform pairs to perform?",
         "chapter": "Chapter_10_Section_6",
         "frequency": 1,
         "time_stamp": 37,
@@ -10376,7 +10376,7 @@
         "answer_end": 1060
     },
     {
-        "question": "when struck sharp, what produces a \u201cpure\u201d tone?",
+        "question": "when struck sharp, what produces a “pure” tone?",
         "chapter": "Chapter_2_Section_0",
         "frequency": 8,
         "time_stamp": 31,
@@ -10424,7 +10424,7 @@
         "answer_end": 1348
     },
     {
-        "question": "if you hit the tuning fork sharply on a hard surface such as a table, you will hear a high pitched metallic \u201cting\u201d sound.",
+        "question": "if you hit the tuning fork sharply on a hard surface such as a table, you will hear a high pitched metallic “ting” sound.",
         "chapter": "Chapter_2_Section_0",
         "frequency": 1,
         "time_stamp": 116,
@@ -13488,7 +13488,7 @@
         "answer_end": 1028
     },
     {
-        "question": "when struck against a firm surface, the tines of what instrument vibrate and produce a \u201cpure\u201d tone?",
+        "question": "when struck against a firm surface, the tines of what instrument vibrate and produce a “pure” tone?",
         "chapter": "Chapter_2_Section_6",
         "frequency": 11,
         "time_stamp": 46,
@@ -16096,7 +16096,7 @@
         "answer_end": 580
     },
     {
-        "question": "what is the vowel sound \u201cah\u201d?",
+        "question": "what is the vowel sound “ah”?",
         "chapter": "Chapter_3_Section_2",
         "frequency": 1,
         "time_stamp": 3,
@@ -16984,7 +16984,7 @@
         "answer_end": 1520
     },
     {
-        "question": "what is the spectrum of the \u201csine-cubed\u201d signal derived from?",
+        "question": "what is the spectrum of the “sine-cubed” signal derived from?",
         "chapter": "Chapter_3_Section_4",
         "frequency": 1,
         "time_stamp": 115,
@@ -17000,7 +17000,7 @@
         "answer_end": -1
     },
     {
-        "question": "what do you use to determine all the fourier series coefficients of the \u201csine-cubed\u201d signal?",
+        "question": "what do you use to determine all the fourier series coefficients of the “sine-cubed” signal?",
         "chapter": "Chapter_3_Section_4",
         "frequency": 1,
         "time_stamp": 101,
@@ -18888,7 +18888,7 @@
         "answer_end": 554
     },
     {
-        "question": "define a \u201cchirp\u201d signal as in example<unk> with the following parameters?",
+        "question": "define a “chirp” signal as in example<unk> with the following parameters?",
         "chapter": "Chapter_3_Section_9",
         "frequency": 2,
         "time_stamp": 3,
@@ -18928,7 +18928,7 @@
         "answer_end": 1091
     },
     {
-        "question": "the rest of this experiment will demonstrate that the derivative of what is the \u201ccorrect\u201d definition of instantaneous frequency?",
+        "question": "the rest of this experiment will demonstrate that the derivative of what is the “correct” definition of instantaneous frequency?",
         "chapter": "Chapter_3_Section_9",
         "frequency": 2,
         "time_stamp": 38,
@@ -18936,7 +18936,7 @@
         "answer_end": 1188
     },
     {
-        "question": "what is the \u201ccorrect\u201d definition of instantaneous frequency?",
+        "question": "what is the “correct” definition of instantaneous frequency?",
         "chapter": "Chapter_3_Section_9",
         "frequency": 2,
         "time_stamp": 49,
@@ -19352,7 +19352,7 @@
         "answer_end": -1
     },
     {
-        "question": "how have we \u201cplotted\u201d analog waveforms using matlab?",
+        "question": "how have we “plotted” analog waveforms using matlab?",
         "chapter": "Chapter_4_Section_0",
         "frequency": 1,
         "time_stamp": 64,
@@ -20032,7 +20032,7 @@
         "answer_end": 300
     },
     {
-        "question": "what is one \u201cname\u201d that identifies that signal?",
+        "question": "what is one “name” that identifies that signal?",
         "chapter": "Chapter_4_Section_0",
         "frequency": 1,
         "time_stamp": 47,
@@ -23248,7 +23248,7 @@
         "answer_end": 1456
     },
     {
-        "question": "what are limited to a \u201cband of frequencies\u201d of the form called?",
+        "question": "what are limited to a “band of frequencies” of the form called?",
         "chapter": "Chapter_4_Section_4",
         "frequency": 2,
         "time_stamp": 104,
@@ -24496,7 +24496,7 @@
         "answer_end": -1
     },
     {
-        "question": "what is the shaded interval where the 3-point averager \u201cruns onto\u201d the input sequence?",
+        "question": "what is the shaded interval where the 3-point averager “runs onto” the input sequence?",
         "chapter": "Chapter_5_Section_2",
         "frequency": 1,
         "time_stamp": 75,
@@ -26704,7 +26704,7 @@
         "answer_end": 1333
     },
     {
-        "question": "what is a very important and useful result because states that \u201cto convolve any sequence with an impulse located at, all we need to do is translate the origin of to\u201d?",
+        "question": "what is a very important and useful result because states that “to convolve any sequence with an impulse located at, all we need to do is translate the origin of to”?",
         "chapter": "Chapter_5_Section_5",
         "frequency": 1,
         "time_stamp": 35,
@@ -29320,7 +29320,7 @@
         "answer_end": 2355
     },
     {
-        "question": "what provides the theoretical basis for the \u201csynthetic\u201d multiplication algorithm discussed in section <unk> on p.<unk>?",
+        "question": "what provides the theoretical basis for the “synthetic” multiplication algorithm discussed in section <unk> on p.<unk>?",
         "chapter": "Chapter_6_Section_5",
         "frequency": 8,
         "time_stamp": 34,
@@ -29920,7 +29920,7 @@
         "answer_end": 859
     },
     {
-        "question": "what is a \u201clowpass filter\u201d that accentuates low frequencies relative to high frequencies?",
+        "question": "what is a “lowpass filter” that accentuates low frequencies relative to high frequencies?",
         "chapter": "Chapter_6_Section_6",
         "frequency": 1,
         "time_stamp": 111,
@@ -30208,7 +30208,7 @@
         "answer_end": 2587
     },
     {
-        "question": "what was the result of filtering both the rows and the columns of the \u201chomework\u201d image with an 11-point running averager?",
+        "question": "what was the result of filtering both the rows and the columns of the “homework” image with an 11-point running averager?",
         "chapter": "Chapter_6_Section_6",
         "frequency": 1,
         "time_stamp": 88,
@@ -30304,7 +30304,7 @@
         "answer_end": -1
     },
     {
-        "question": "how many points running averager did the \u201chomework plus cosine\u201d image have?",
+        "question": "how many points running averager did the “homework plus cosine” image have?",
         "chapter": "Chapter_6_Section_6",
         "frequency": 1,
         "time_stamp": 70,
@@ -30336,7 +30336,7 @@
         "answer_end": 3900
     },
     {
-        "question": "what is the result after filtering the rows of the \u201chomework plus cosine\u201d image with an 11-point running averager?",
+        "question": "what is the result after filtering the rows of the “homework plus cosine” image with an 11-point running averager?",
         "chapter": "Chapter_6_Section_6",
         "frequency": 1,
         "time_stamp": 60,
@@ -32224,7 +32224,7 @@
         "answer_end": 5007
     },
     {
-        "question": "what is the form of the \u201csinc function\u201d?",
+        "question": "what is the form of the “sinc function”?",
         "chapter": "Chapter_7_Section_1",
         "frequency": 1,
         "time_stamp": 49,
@@ -32384,7 +32384,7 @@
         "answer_end": 6709
     },
     {
-        "question": "what do we use to \u201csum\u201d the expression for the dtft and obtain a closed-form representation?",
+        "question": "what do we use to “sum” the expression for the dtft and obtain a closed-form representation?",
         "chapter": "Chapter_7_Section_1",
         "frequency": 1,
         "time_stamp": 19,
@@ -32704,7 +32704,7 @@
         "answer_end": 1638
     },
     {
-        "question": "what do we need to compare the dtft of vis-\u00e0-vis?",
+        "question": "what do we need to compare the dtft of vis-à-vis?",
         "chapter": "Chapter_7_Section_2",
         "frequency": 4,
         "time_stamp": 116,
@@ -35560,7 +35560,7 @@
         "answer_end": 1508
     },
     {
-        "question": "what is a \u201cfinite fourier sum\u201d?",
+        "question": "what is a “finite fourier sum”?",
         "chapter": "Chapter_8_Section_1",
         "frequency": 1,
         "time_stamp": 101,
@@ -36480,7 +36480,7 @@
         "answer_end": 1857
     },
     {
-        "question": "what is the \u201creal\u201d or \u201cactual\u201d domain?",
+        "question": "what is the “real” or “actual” domain?",
         "chapter": "Chapter_8_Section_11",
         "frequency": 1,
         "time_stamp": 43,
@@ -36808,7 +36808,7 @@
         "answer_end": 1343
     },
     {
-        "question": "equation provides the answer to the question: \u201cwhen can a sequence be reconstructed exactly from samples of its dtft?\u201d",
+        "question": "equation provides the answer to the question: “when can a sequence be reconstructed exactly from samples of its dtft?”",
         "chapter": "Chapter_8_Section_2",
         "frequency": 1,
         "time_stamp": 27,
@@ -37264,7 +37264,7 @@
         "answer_end": 4003
     },
     {
-        "question": "what must we compute if we wish to use multiplication of the dft by to effect a time shift of 4 samples that does not \u201cwrap around?\u201d",
+        "question": "what must we compute if we wish to use multiplication of the dft by to effect a time shift of 4 samples that does not “wrap around?”",
         "chapter": "Chapter_8_Section_2",
         "frequency": 5,
         "time_stamp": 22,
@@ -38816,7 +38816,7 @@
         "answer_end": 3259
     },
     {
-        "question": "what shows a \u201ctypical\u201d spectrum for a band limited continuous time periodic signal as a function of?",
+        "question": "what shows a “typical” spectrum for a band limited continuous time periodic signal as a function of?",
         "chapter": "Chapter_8_Section_5",
         "frequency": 1,
         "time_stamp": 55,
@@ -39704,7 +39704,7 @@
         "answer_end": 3389
     },
     {
-        "question": "what does the presence of many additional spectral components give a \u201cblurred\u201d or imprecise representation of the original continuous-time signal?",
+        "question": "what does the presence of many additional spectral components give a “blurred” or imprecise representation of the original continuous-time signal?",
         "chapter": "Chapter_8_Section_6",
         "frequency": 2,
         "time_stamp": 53,
@@ -41592,7 +41592,7 @@
         "answer_end": 1722
     },
     {
-        "question": "what are \u201cvertical slices\u201d of the spectrogram?",
+        "question": "what are “vertical slices” of the spectrogram?",
         "chapter": "Chapter_8_Section_8",
         "frequency": 1,
         "time_stamp": 34,
@@ -41704,7 +41704,7 @@
         "answer_end": 3225
     },
     {
-        "question": "what may need a longer window to \u201cresolve\u201d two closely spaced frequency components into separate peaks in the frequency domain?",
+        "question": "what may need a longer window to “resolve” two closely spaced frequency components into separate peaks in the frequency domain?",
         "chapter": "Chapter_8_Section_8",
         "frequency": 2,
         "time_stamp": 56,
@@ -43088,7 +43088,7 @@
         "answer_end": -1
     },
     {
-        "question": "what do we also refer to as the time\u2013domain representation of the signal?",
+        "question": "what do we also refer to as the time–domain representation of the signal?",
         "chapter": "Chapter_9_Section_0",
         "frequency": 1,
         "time_stamp": 41,
@@ -45336,7 +45336,7 @@
         "answer_end": 767
     },
     {
-        "question": "equations \u2013 give how many different equivalent forms of?",
+        "question": "equations – give how many different equivalent forms of?",
         "chapter": "Chapter_9_Section_5",
         "frequency": 1,
         "time_stamp": 11,
