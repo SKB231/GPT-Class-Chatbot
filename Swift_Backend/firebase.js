@@ -121,4 +121,6 @@ function storeJson() {
     });
 }
 
+incrementFrequency('what command returns text information in the command window?')
+
 process.on('exit', storeJson);
