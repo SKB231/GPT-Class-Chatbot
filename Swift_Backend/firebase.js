@@ -42,6 +42,21 @@ async function getUserQueries(user) {
 //     await batch.commit();
 // }
 
+function cacheAnswer(id, answer) {
+    
+}
+
+function cacheContext(id, compact_context) {
+    
+}
+
+function incrementFrequency(top_suggestions) {
+    try {
+        top_suggestions['frequency'] += 1;
+    } catch {
+        console.log('Error in incrementing frequency')
+    }
+}
 
 var data = require('./original_mock_data.json')
 
@@ -50,8 +65,14 @@ function autocomplete(input, sort='length', num=20) {
         return []
     }
 
-    var prefix = new RegExp(`^${input}`, 'i')
-    var pattern = new RegExp(`${input}`, 'i')
+    try {
+        var prefix = new RegExp(`^${escape(input)}`, 'i')
+        var pattern = new RegExp(`${escape(input)}`, 'i')
+    } catch {
+        console.log("Error forming regular expression on user input")
+        return []
+    }
+
     var prefix_matches = data.filter(d => d.question.search(prefix) >= 0)
     top_suggestions = prefix_matches.sort((a, b) => custom_sort(a, b, sort))
     if (top_suggestions.length >= num) {
@@ -64,9 +85,13 @@ function autocomplete(input, sort='length', num=20) {
     return top_suggestions.splice(0, num)
 }
 
+function countWords(str) {
+    return str.trim().split(/\s+/).length;
+}
+
 function custom_sort(a, b, sort='length') {
     if (sort == 'length') {
-        weight = a["question"].length - b["question"].length
+        weight = (countWords(a["question"].length) - countWords(b["question"].length))
         if (weight == 0) {
             weight = (b["frequency"] - a["frequency"]) / 100
         }
@@ -80,11 +105,7 @@ function custom_sort(a, b, sort='length') {
     }
 }
 
-function delay(time) {
-  return new Promise(resolve => setTimeout(resolve, time));
-}
-
-async function test() {
+function test() {
    console.log(autocomplete('what command'))
 }
 
