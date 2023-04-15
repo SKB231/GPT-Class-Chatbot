@@ -47,10 +47,21 @@ function registerQuery(query, user='unknown') {
  * {string[]} query.users: All users who submitted this query. Length of query.frequency.
  * {number[]} query.timestamps: Timestamps for each time this query was submitted. Length of query.frequency.
  * {string?} query.response: The cached ChatGPT response for a query, or null if one does not exist.
- * @param {string} query The query to retrieve the data for
+ * @param {string} query The query to retrieve the data for.
+ * @param {string?} property Optionally return a specific property from the choices listed above.
+ * @returns {object} The query's data as specifiied above, or its specified property if provided.
  */
-function retrieveQuery(query) {
-    return query_to_data[query]
+function retrieveQuery(query, property=undefined) {
+    if (query in query_to_data) {
+        var data = query_to_data[query]
+        if (property != undefined && property in data) {
+            return query_to_data[query][property]
+        }
+        return query_to_data[query]
+    } else {
+        console.log("Query not found.")
+    }
+
 }
 
 /**
@@ -80,6 +91,8 @@ function writeDataToJson() {
 
 /**
  * Autocompletes a user's input based on the data in the database and a weighing model.
+ * Uses a mixture of length, frequency, and matched words to determine the best suggestions.
+ * If no input is given, then will prioritize suggesting the most frequently asked questions.
  * @param {string} input The user input to autocomplete.
  * @param {string} [priority = 'length' | 'frequency' | 'word'] The priority for the weighting function.
  * @param {number} [num = 20] The number of queries to return.
