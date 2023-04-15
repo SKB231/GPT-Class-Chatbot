@@ -8,10 +8,10 @@ exports.cacheResponse = (query, response) => cacheResponse(query, response)
 exports.autocomplete = (input, priority='length', num=20) => autocomplete(input, priority, num);
 exports.writeDataToJson = () => writeDataToJson()
 
-var query_to_data = {}
+const queryToData = {}
 
 for (i in data) {
-    query_to_data[data[i].query] = data[i];
+    queryToData[data[i].query] = data[i];
 }
 
 /**
@@ -22,12 +22,12 @@ for (i in data) {
  * @param {string} [user='unknown'] The user who submitted the query.
  */
 function registerQuery(query, user='unknown') {
-    if (query in query_to_data) {
-        query_to_data[query].frequency += 1
-        query_to_data[query].time_stamps.push(Date.now())
-        query_to_data[query].users.push(user)
+    if (query in queryToData) {
+        queryToData[query].frequency += 1
+        queryToData[query].time_stamps.push(Date.now())
+        queryToData[query].users.push(user)
     } else {
-        newData = {
+        var newData = {
             question: `${query}`,
             frequency: 1,
             time_stamps: [Date.now()],
@@ -35,7 +35,7 @@ function registerQuery(query, user='unknown') {
             response: null
         }
         data.push(newData)
-        query_to_data[query] = newData
+        queryToData[query] = newData
     }
 }
 
@@ -52,12 +52,12 @@ function registerQuery(query, user='unknown') {
  * @returns {object} The query's data as specifiied above, or its specified property if provided.
  */
 function retrieveQuery(query, property=undefined) {
-    if (query in query_to_data) {
-        var data = query_to_data[query]
+    if (query in queryToData) {
+        var data = queryToData[query]
         if (property != undefined && property in data) {
-            return query_to_data[query][property]
+            return queryToData[query][property]
         }
-        return query_to_data[query]
+        return queryToData[query]
     } else {
         console.log("Query not found.")
     }
@@ -70,8 +70,8 @@ function retrieveQuery(query, property=undefined) {
  * @param {string} response The ChatGPT response for that query.
  */
 function cacheResponse(query, response) {
-    if (query in query_to_data) {
-        query_to_data[query].response = response
+    if (query in queryToData) {
+        queryToData[query].response = response
     } else {
         console.log("Query not found")
     }
@@ -94,7 +94,7 @@ function writeDataToJson() {
  * Uses a mixture of length, frequency, and matched words to determine the best suggestions.
  * If no input is given, then will prioritize suggesting the most frequently asked questions.
  * @param {string} input The user input to autocomplete.
- * @param {string} [priority = 'length' | 'frequency' | 'word'] The priority for the weighting function.
+ * @param {string} [priority = 'length' | 'frequency' | 'similarity'] The priority for the weighting function.
  * @param {number} [num = 20] The number of queries to return.
  * @returns {Object[]} A list of objects which contains a query and its relevant data.
  */
@@ -103,61 +103,61 @@ function autocomplete(input, priority='length', num=20) {
         return []
     }
 
-    var sanitized_input = input.replaceAll(/[&/\\#,+()$~%.^'":*?<>{}]/g, "")
-    var stop_words_removed = remove_stopwords(sanitized_input)
+    var saniteizedInput = input.replaceAll(/[&/\\#,+()$~%.^'":*?<>{}]/g, "")
+    var stopWordsRemoved = removeStopwords(saniteizedInput)
     try {
-        var prefix = new RegExp(`^${sanitized_input}`, 'i')
-        var pattern = new RegExp(`${sanitized_input}`, 'i')
-        var words = new RegExp("(?<= |-|_)" + stop_words_removed.replace(/ /gi,"(?= |-|_)|(?<= |-|_)"), 'gi')
+        var prefix = new RegExp(`^${saniteizedInput}`, 'i')
+        var pattern = new RegExp(`${saniteizedInput}`, 'i')
+        var similarity = new RegExp("(?<= |-|_)" + stopWordsRemoved.replace(/ /gi,"(?= |-|_)|(?<= |-|_)"), 'gi')
     } catch (err) {
         console.log("Error forming regular expression on user input")
         console.log(err.message)
         return []
     }
 
-    var matches_dict = {}
+    var matchesDict = {}
 
     if (input == '') {
         priority = 'frequency'
     }
 
-    if (stop_words_removed != '') {
-        var word_matches = data.filter(d => d.query.search(words) >= 0)
-        for (i in word_matches) {
-            var matched_words = word_matches[i].query.match(words).length
-            matches_dict[word_matches[i].query] = matched_words
+    if (stopWordsRemoved != '') {
+        var wordMatches = data.filter(d => d.query.search(similarity) >= 0)
+        for (i in wordMatches) {
+            var matchedWords = wordMatches[i].query.match(similarity).length
+            matchesDict[wordMatches[i].query] = matchedWords
         }
     }
 
-    var prefix_matches = data.filter(d => d.query.search(prefix) >= 0)
-    top_suggestions = prefix_matches.sort((a, b) => custom_sort(a, b, priority, matches_dict))
-    if (top_suggestions.length >= num) {
-        return top_suggestions.splice(0, num)
+    var prefixMatches = data.filter(d => d.query.search(prefix) >= 0)
+    var topSuggestions = prefixMatches.sort((a, b) => custom_sort(a, b, priority, matchesDict))
+    if (topSuggestions.length >= num) {
+        return topSuggestions.splice(0, num)
     }
 
-    var pattern_matches = data.filter(d => d.query.search(pattern) >= 0)
-    top_suggestions_2 = pattern_matches.sort((a, b) => custom_sort(a, b, priority, matches_dict))
-    top_suggestions = top_suggestions.concat(top_suggestions_2)
-    top_suggestions = top_suggestions.filter((item, idx) => top_suggestions.indexOf(item) == idx)
-    if (top_suggestions.length >= num) {
-        return top_suggestions.splice(0, num)
+    var patternMatches = data.filter(d => d.query.search(pattern) >= 0)
+    var patternSuggestions = patternMatches.sort((a, b) => custom_sort(a, b, priority, matchesDict))
+    topSuggestions = topSuggestions.concat(patternSuggestions)
+    topSuggestions = topSuggestions.filter((item, idx) => topSuggestions.indexOf(item) == idx)
+    if (topSuggestions.length >= num) {
+        return topSuggestions.splice(0, num)
     }
 
-    top_suggestions_3 = word_matches.sort((a, b) => custom_sort(a, b, priority, matches_dict))
-    top_suggestions = top_suggestions.concat(top_suggestions_3)
-    top_suggestions = top_suggestions.filter((item, idx) => top_suggestions.indexOf(item) == idx)
+    var similaritySuggestions = wordMatches.sort((a, b) => custom_sort(a, b, priority, matchesDict))
+    topSuggestions = topSuggestions.concat(similaritySuggestions)
+    topSuggestions = topSuggestions.filter((item, idx) => topSuggestions.indexOf(item) == idx)
 
-    return top_suggestions.splice(0, num)
+    return topSuggestions.splice(0, num)
 }
 
 stopwords = ['i','me','my','myself','we','our','ours','ourselves','you','your','yours','yourself','yourselves','he','him','his','himself','she','her','hers','herself','it','its','itself','they','them','their','theirs','themselves','what','which','who','whom','this','that','these','those','am','is','are','was','were','be','been','being','have','has','had','having','do','does','did','doing','a','an','the','and','but','if','or','because','as','until','while','of','at','by','for','with','about','against','between','into','through','during','before','after','above','below','to','from','up','down','in','out','on','off','over','under','again','further','then','once','here','there','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','s','t','can','will','just','don','should','now']
-function remove_stopwords(str) {
-    res = []
-    words = str.split(' ')
+function removeStopwords(str) {
+    var res = []
+    var words = str.split(' ')
     for(i=0;i<words.length;i++) {
-       word_clean = words[i].split(".").join("")
-       if(!stopwords.includes(word_clean.toLowerCase())) {
-           res.push(word_clean)
+       var wordClean = words[i].split(".").join("")
+       if(!stopwords.includes(wordClean.toLowerCase())) {
+           res.push(wordClean)
        }
     }
     return(res.join(' '))
@@ -167,17 +167,17 @@ function countWords(str) {
     return str.trim().split(/\s+/).length;
 }
 
-function custom_sort(a, b, priority='length', matches_dict = undefined) {
-    lengthWeight = countWords(a.query) - countWords(b.query)
-    frequencyWeight = b.frequency - a.frequency < 0 ? -Math.pow(Math.abs(b.frequency - a.frequency), 0.66) : Math.pow(b.frequency - a.frequency, 0.66)
-    wordWeight = !matches_dict || !(b.query in matches_dict) || !(a.query in matches_dict) ? 0 : (matches_dict[b.query] - matches_dict[a.query]) * 3
+function custom_sort(a, b, priority='length', matchesDict = undefined) {
+    var lengthWeight = countWords(a.query) - countWords(b.query)
+    var frequencyWeight = b.frequency - a.frequency < 0 ? -Math.pow(Math.abs(b.frequency - a.frequency), 0.66) : Math.pow(b.frequency - a.frequency, 0.66)
+    var similarityWeight = !matchesDict || !(b.query in matchesDict) || !(a.query in matchesDict) ? 0 : (matchesDict[b.query] - matchesDict[a.query]) * 3
 
     if (priority == 'frequency') {
-        return lengthWeight * 0.25 + frequencyWeight * 0.5 + wordWeight * 0.25
-    } else if (priority == 'word') {
-        return lengthWeight * 0.25 + frequencyWeight * 0.5 + wordWeight * 0.25
+        return lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
+    } else if (priority == 'similarity') {
+        return lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
     } else {
-        return lengthWeight * 0.5 + frequencyWeight * 0.25 + wordWeight * 0.25
+        return lengthWeight * 0.5 + frequencyWeight * 0.25 + similarityWeight * 0.25
     }
 }
 
@@ -191,6 +191,8 @@ function randomizeData() {
     }
 }
 
+console.log(retrieveQuery("what is the principle of superposition for lti systems?"))
+console.log(retrieveQuery("what is the principle of superposition for lti systems?", "users"))
 start = Date.now()
 val = autocomplete('what are fir filt')
 end = Date.now()
