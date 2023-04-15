@@ -1,7 +1,5 @@
 const fs = require('fs')
 var data = require('./data/mock_data.json');
-const { match } = require('assert');
-const { query } = require('express');
 exports.registerQuery = (query, user='unknown') => registerQuery(query, user)
 exports.retrieveQuery = (query) => retrieveQuery(query)
 exports.cacheResponse = (query, response) => cacheResponse(query, response)
@@ -151,6 +149,10 @@ function autocomplete(input, priority='length', num=20) {
     return topSuggestions.splice(0, num)
 }
 
+
+
+// HELPER METHODS + EXAMPLE DRIVER CODE
+
 stopwords = ['i','me','my','myself','we','our','ours','ourselves','you','your','yours','yourself','yourselves','he','him','his','himself','she','her','hers','herself','it','its','itself','they','them','their','theirs','themselves','what','which','who','whom','this','that','these','those','am','is','are','was','were','be','been','being','have','has','had','having','do','does','did','doing','a','an','the','and','but','if','or','because','as','until','while','of','at','by','for','with','about','against','between','into','through','during','before','after','above','below','to','from','up','down','in','out','on','off','over','under','again','further','then','once','here','there','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','s','t','can','will','just','don','should','now']
 function removeStopwords(str) {
     var res = []
@@ -182,6 +184,10 @@ function customSort(a, b, priority='length', matchesDict = undefined) {
     }
 }
 
+/**
+ * Initializes the databse with random frequencies. 
+ * Longer words have a higher chance to get higher frequencies to level the playing field.
+ */
 function randomizeData() {
     for (i in data) {
         data[i].frequency =  1 + Math.floor(Math.random() * 3) +
@@ -192,10 +198,11 @@ function randomizeData() {
     }
 }
 
-console.log(retrieveQuery("what is the principle of superposition for lti systems?"))
-console.log(retrieveQuery("what is the principle of superposition for lti systems?", "users"))
-start = Date.now()
-val = autocomplete('what are fir filt')
-end = Date.now()
-console.log(val)
-console.log(end - start)
+// Example driver code for how to utilize the database
+// console.log(retrieveQuery("what is the principle of superposition for lti systems?"))
+// console.log(retrieveQuery("what is the principle of superposition for lti systems?", "users"))
+// start = Date.now()
+// val = autocomplete('what are fir filt')
+// end = Date.now()
+// console.log(val)
+// console.log(end - start)
