@@ -73,8 +73,8 @@ exports.autocomplete = (input, sort='length', num=20) => {
     }
 
     try {
-        var prefix = new RegExp(`^${escape(input)}`, 'i')
-        var pattern = new RegExp(`${escape(input)}`, 'i')
+        var prefix = new RegExp(`^${input}`, 'i')
+        var pattern = new RegExp(`${input}`, 'i')
     } catch {
         console.log("Error forming regular expression on user input")
         return []
@@ -106,8 +106,8 @@ function custom_sort(a, b, sort='length') {
     } else {
         weight = (b["frequency"] - a["frequency"])
         if (weight == 0) {
-            weight = (a["question"].length - b["question"].length) / 100
-        }
+            weight = Math.floor((countWords(a["question"]) - countWords(b["question"])) / 2) / 100
+         }
         return weight
     }
 }
