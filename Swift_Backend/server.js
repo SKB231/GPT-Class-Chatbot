@@ -1,4 +1,4 @@
-const {autocomplete} = require("./firebase")
+const {registerQuery, autocomplete, storeJson, } = require("./database")
 require("dotenv").config();
 const io = require("socket.io")(3000);
 
