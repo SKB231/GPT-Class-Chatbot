@@ -60,6 +60,7 @@ function retrieveQuery(query, property=undefined) {
         return queryToData[query]
     } else {
         console.log("Query not found.")
+        return null
     }
 
 }
@@ -130,20 +131,20 @@ function autocomplete(input, priority='length', num=20) {
     }
 
     var prefixMatches = data.filter(d => d.query.search(prefix) >= 0)
-    var topSuggestions = prefixMatches.sort((a, b) => custom_sort(a, b, priority, matchesDict))
+    var topSuggestions = prefixMatches.sort((a, b) => customSort(a, b, priority, matchesDict))
     if (topSuggestions.length >= num) {
         return topSuggestions.splice(0, num)
     }
 
     var patternMatches = data.filter(d => d.query.search(pattern) >= 0)
-    var patternSuggestions = patternMatches.sort((a, b) => custom_sort(a, b, priority, matchesDict))
+    var patternSuggestions = patternMatches.sort((a, b) => customSort(a, b, priority, matchesDict))
     topSuggestions = topSuggestions.concat(patternSuggestions)
     topSuggestions = topSuggestions.filter((item, idx) => topSuggestions.indexOf(item) == idx)
     if (topSuggestions.length >= num) {
         return topSuggestions.splice(0, num)
     }
 
-    var similaritySuggestions = wordMatches.sort((a, b) => custom_sort(a, b, priority, matchesDict))
+    var similaritySuggestions = wordMatches.sort((a, b) => customSort(a, b, priority, matchesDict))
     topSuggestions = topSuggestions.concat(similaritySuggestions)
     topSuggestions = topSuggestions.filter((item, idx) => topSuggestions.indexOf(item) == idx)
 
@@ -167,7 +168,7 @@ function countWords(str) {
     return str.trim().split(/\s+/).length;
 }
 
-function custom_sort(a, b, priority='length', matchesDict = undefined) {
+function customSort(a, b, priority='length', matchesDict = undefined) {
     var lengthWeight = countWords(a.query) - countWords(b.query)
     var frequencyWeight = b.frequency - a.frequency < 0 ? -Math.pow(Math.abs(b.frequency - a.frequency), 0.66) : Math.pow(b.frequency - a.frequency, 0.66)
     var similarityWeight = !matchesDict || !(b.query in matchesDict) || !(a.query in matchesDict) ? 0 : (matchesDict[b.query] - matchesDict[a.query]) * 3
