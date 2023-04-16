@@ -47,7 +47,7 @@ function registerQuery(query, user='unknown') {
  * {string?} query.response: The cached ChatGPT response for a query, or null if one does not exist.
  * @param {string} query The query to retrieve the data for.
  * @param {string?} property Optionally return a specific property from the choices listed above.
- * @returns {object} The query's data as specifiied above, or its specified property if provided.
+ * @returns {object?} The query's data as specifiied above, or its specified property if provided.
  */
 function retrieveQuery(query, property=undefined) {
     if (query in queryToData) {
@@ -92,10 +92,11 @@ function writeDataToJson() {
  * Autocompletes a user's input based on the data in the database and a weighing model.
  * Uses a mixture of length, frequency, and matched words to determine the best suggestions.
  * If no input is given, then will prioritize suggesting the most frequently asked questions.
+ * Includes a likelihood property.
  * @param {string} input The user input to autocomplete.
  * @param {string} [priority = 'length' | 'frequency' | 'similarity'] The priority for the weighting function.
  * @param {number} [num = 20] The number of queries to return.
- * @returns {Object[]} A list of objects which contains a query and its relevant data.
+ * @returns {Object[]} A list of objects which contains a query and its relevant data. Attaches a likelihood property as well.
  */
 function autocomplete(input, priority='length', num=20) {
     if (data == null) {
@@ -107,46 +108,45 @@ function autocomplete(input, priority='length', num=20) {
     try {
         var prefix = new RegExp(`^${saniteizedInput}`, 'i')
         var pattern = new RegExp(`${saniteizedInput}`, 'i')
-        var similarity = new RegExp("(?<= |-|_)" + stopWordsRemoved.replace(/ /gi,"(?= |-|_)|(?<= |-|_)"), 'gi')
+        var anyWord = stopWordsRemoved == '' ? /^$/ : new RegExp("(?<= |-|_)" + stopWordsRemoved.replace(/ /gi,"(?= |-|_)|(?<= |-|_)"), 'gi')
     } catch (err) {
         console.log("Error forming regular expression on user input")
         console.log(err.message)
         return []
     }
 
-    var matchesDict = {}
-
     if (input == '') {
         priority = 'frequency'
     }
 
-    if (stopWordsRemoved != '') {
-        var wordMatches = data.filter(d => d.query.search(similarity) >= 0)
-        for (i in wordMatches) {
-            var matchedWords = wordMatches[i].query.match(similarity).length
-            matchesDict[wordMatches[i].query] = matchedWords
-        }
+    var matchesDict = {}
+    var likelihoodDict = {}
+    for (i in data) {
+        var matchedWords = data[i].query.match(anyWord)
+        matchedWords = matchedWords != null ? matchedWords.length : 0
+        matchesDict[data[i].query] = matchedWords
+        var likelihood = calculateLikelihood(data[i], priority, matchedWords)
+        likelihoodDict[data[i].query] = likelihood
     }
-
+    
     var prefixMatches = data.filter(d => d.query.search(prefix) >= 0)
-    var topSuggestions = prefixMatches.sort((a, b) => customSort(a, b, priority, matchesDict))
-    if (topSuggestions.length >= num) {
-        return topSuggestions.splice(0, num)
+    var prefixSuggestions = prefixMatches.sort((a, b) => customSort(a, b, likelihoodDict))
+    if (prefixSuggestions.length >= num) {
+        return attachLikelihoods(attachMatchType(prefixSuggestions.splice(0, num)))
     }
 
     var patternMatches = data.filter(d => d.query.search(pattern) >= 0)
-    var patternSuggestions = patternMatches.sort((a, b) => customSort(a, b, priority, matchesDict))
-    topSuggestions = topSuggestions.concat(patternSuggestions)
-    topSuggestions = topSuggestions.filter((item, idx) => topSuggestions.indexOf(item) == idx)
-    if (topSuggestions.length >= num) {
-        return topSuggestions.splice(0, num)
+    var patternSuggestions = patternMatches.sort((a, b) => customSort(a, b, likelihoodDict))
+    patternSuggestions = patternSuggestions.filter((item) => !prefixSuggestions.includes(item))
+
+    if (prefixSuggestions.length + patternSuggestions.length >= num) {
+        return mergeSuggestions(likelihoodDict, prefixSuggestions, patternSuggestions, num)
     }
 
-    var similaritySuggestions = wordMatches.sort((a, b) => customSort(a, b, priority, matchesDict))
-    topSuggestions = topSuggestions.concat(similaritySuggestions)
-    topSuggestions = topSuggestions.filter((item, idx) => topSuggestions.indexOf(item) == idx)
-
-    return topSuggestions.splice(0, num)
+    var wordMatches = data.filter(d => d.query.search(anyWord) >= 0)
+    var similaritySuggestions = wordMatches.sort((a, b) => customSort(a, b, likelihoodDict))
+    similaritySuggestions = similaritySuggestions.filter((item) => !prefixSuggestions.includes(item) && !patternSuggestions.includes(item))
+    return mergeSuggestions(likelihoodDict, prefixSuggestions, patternSuggestions, similaritySuggestions, num)
 }
 
 
@@ -167,14 +167,14 @@ function removeStopwords(str) {
 }
 
 function countWords(str) {
+    if (!str) return 0;
     return str.trim().split(/\s+/).length;
 }
 
-function customSort(a, b, priority='length', matchesDict = undefined) {
-    var lengthWeight = countWords(a.query) - countWords(b.query)
-    var frequencyWeight = b.frequency - a.frequency < 0 ? -Math.pow(Math.abs(b.frequency - a.frequency), 0.66) : Math.pow(b.frequency - a.frequency, 0.66)
-    var similarityWeight = !matchesDict || !(b.query in matchesDict) || !(a.query in matchesDict) ? 0 : (matchesDict[b.query] - matchesDict[a.query]) * 3
-
+function calculateLikelihood(suggestion, priority, matches) {
+    var lengthWeight = -countWords(suggestion.query)
+    var frequencyWeight = Math.pow(suggestion.frequency, 0.66)
+    var similarityWeight = matches * 3;
     if (priority == 'frequency') {
         return lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
     } else if (priority == 'similarity') {
@@ -183,6 +183,37 @@ function customSort(a, b, priority='length', matchesDict = undefined) {
         return lengthWeight * 0.5 + frequencyWeight * 0.25 + similarityWeight * 0.25
     }
 }
+
+function customSort(a, b, likelihoodDict) {
+    return likelihoodDict[b.query] - likelihoodDict[a.query]
+}
+
+
+function mergeSuggestions(likelihoodDict, prefix, pattern=undefined, anyWord=undefined, num=20) {
+    attachMatchType(prefix, 'prefix')
+    attachMatchType(pattern, 'pattern')
+    var merged = prefix.concat(pattern.splice(0, num - prefix.length))
+    if (anyWord) {
+        attachMatchType(anyWord, 'anyWord')
+        merged = merged.concat(anyWord.splice(0, num - merged.length))
+
+    }
+    attachLikelihoods(merged, likelihoodDict)
+    return merged
+}
+
+function attachLikelihoods(suggestionsSplice, likelihoodDict) {
+    for (i in suggestionsSplice) {
+        suggestionsSplice[i].likelihood = likelihoodDict[suggestionsSplice[i].query]
+    }
+}
+
+function attachMatchType(suggestionsSplice, matchType) {
+    for (i in suggestionsSplice) {
+        suggestionsSplice[i].matchType = matchType
+    }
+}
+
 
 /**
  * Initializes the databse with random frequencies. 
@@ -198,10 +229,11 @@ function randomizeData() {
     }
 }
 
-// Example driver code for how to utilize the database
 // console.log(retrieveQuery("what is the principle of superposition for lti systems?"))
 // console.log(retrieveQuery("what is the principle of superposition for lti systems?", "users"))
 // start = Date.now()
+// console.log("Query: what are fir filt-")
+// console.log("Suggestions:")
 // val = autocomplete('what are fir filt')
 // end = Date.now()
 // console.log(val)
