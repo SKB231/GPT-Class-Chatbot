@@ -109,6 +109,9 @@ function autocomplete(input, priority='length', num=20) {
         var prefix = new RegExp(`^${saniteizedInput}`, 'i')
         var pattern = new RegExp(`${saniteizedInput}`, 'i')
         var anyWord = stopWordsRemoved == '' ? /^$/ : new RegExp("(?<= |-|_)" + stopWordsRemoved.replace(/ /gi,"(?= |-|_)|(?<= |-|_)"), 'gi')
+        console.log(prefix)
+        console.log(pattern)
+        console.log(anyWord)
     } catch (err) {
         console.log("Error forming regular expression on user input")
         console.log(err.message)
@@ -118,7 +121,6 @@ function autocomplete(input, priority='length', num=20) {
     if (input == '') {
         priority = 'frequency'
     }
-
     var matchesDict = {}
     var likelihoodDict = {}
     for (i in data) {
@@ -129,10 +131,12 @@ function autocomplete(input, priority='length', num=20) {
         likelihoodDict[data[i].query] = likelihood
     }
     
+    console.log(matchedWords)
+
     var prefixMatches = data.filter(d => d.query.search(prefix) >= 0)
     var prefixSuggestions = prefixMatches.sort((a, b) => customSort(a, b, likelihoodDict))
     if (prefixSuggestions.length >= num) {
-        return attachLikelihoods(attachMatchType(prefixSuggestions.splice(0, num)))
+       return mergeSuggestions(likelihoodDict, prefixSuggestions)
     }
 
     var patternMatches = data.filter(d => d.query.search(pattern) >= 0)
@@ -140,7 +144,7 @@ function autocomplete(input, priority='length', num=20) {
     patternSuggestions = patternSuggestions.filter((item) => !prefixSuggestions.includes(item))
 
     if (prefixSuggestions.length + patternSuggestions.length >= num) {
-        return mergeSuggestions(likelihoodDict, prefixSuggestions, patternSuggestions, num)
+        return mergeSuggestions(likelihoodDict, prefixSuggestions, patternSuggestions)
     }
 
     var wordMatches = data.filter(d => d.query.search(anyWord) >= 0)
@@ -190,16 +194,19 @@ function customSort(a, b, likelihoodDict) {
 
 
 function mergeSuggestions(likelihoodDict, prefix, pattern=undefined, anyWord=undefined, num=20) {
+    prefix = prefix.splice(0, num)
     attachMatchType(prefix, 'prefix')
-    attachMatchType(pattern, 'pattern')
-    var merged = prefix.concat(pattern.splice(0, num - prefix.length))
+    if (pattern) {
+        attachMatchType(pattern, 'pattern')
+        prefix = prefix.concat(pattern.splice(0, num - prefix.length))
+    }
+
     if (anyWord) {
         attachMatchType(anyWord, 'anyWord')
-        merged = merged.concat(anyWord.splice(0, num - merged.length))
-
+        prefix = merged.concat(anyWord.splice(0, num - merged.length))
     }
-    attachLikelihoods(merged, likelihoodDict)
-    return merged
+    attachLikelihoods(prefix, likelihoodDict)
+    return prefix
 }
 
 function attachLikelihoods(suggestionsSplice, likelihoodDict) {
@@ -229,12 +236,12 @@ function randomizeData() {
     }
 }
 
-// console.log(retrieveQuery("what is the principle of superposition for lti systems?"))
-// console.log(retrieveQuery("what is the principle of superposition for lti systems?", "users"))
-// start = Date.now()
-// console.log("Query: what are fir filt-")
-// console.log("Suggestions:")
-// val = autocomplete('what are fir filt')
-// end = Date.now()
-// console.log(val)
-// console.log(end - start)
+console.log(retrieveQuery("what is the principle of superposition for lti systems?"))
+console.log(retrieveQuery("what is the principle of superposition for lti systems?", "users"))
+start = Date.now()
+console.log("Query: what are fir filt-")
+console.log("Suggestions:")
+val = autocomplete('what')
+end = Date.now()
+console.log(val)
+console.log(end - start)
