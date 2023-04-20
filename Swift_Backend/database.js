@@ -107,11 +107,11 @@ function autocomplete(input, priority = "length", num = 20) {
     return [];
   }
   input = input.trim();
-  var saniteizedInput = input.replaceAll(/[&/\\#,+()$~%.^'":*?<>{}]/g, "");
-  var stopWordsRemoved = removeStopwords(saniteizedInput);
+  var sanitizedInput = input.replaceAll(/[&/\\#,+()$~%.^'":*?<>{}]/g, "");
+  var stopWordsRemoved = removeStopwords(sanitizedInput);
   try {
-    var prefix = new RegExp(`^${saniteizedInput}`, "i");
-    var pattern = new RegExp(`${saniteizedInput}`, "i");
+    var prefix = new RegExp(`^${sanitizedInput}`, "i");
+    var pattern = new RegExp(`${sanitizedInput}`, "i");
     var anyWord =
       stopWordsRemoved == ""
         ? /^$/
@@ -138,11 +138,10 @@ function autocomplete(input, priority = "length", num = 20) {
     var matchedWords = data[i].query.match(anyWord);
     matchedWords = matchedWords != null ? matchedWords.length : 0;
     matchesDict[data[i].query] = matchedWords;
-    var likelihood = calculateLikelihood(data[i], priority, matchedWords);
+    var inputLength = countWords(input)
+    var likelihood = calculateLikelihood(data[i], inputLength, priority, matchedWords);
     likelihoodDict[data[i].query] = likelihood;
   }
-
-  console.log(matchedWords);
 
   var prefixMatches = data.filter((d) => d.query.search(prefix) >= 0);
   var prefixSuggestions = prefixMatches.sort((a, b) =>
@@ -187,7 +186,97 @@ function autocomplete(input, priority = "length", num = 20) {
 
 // HELPER METHODS + EXAMPLE DRIVER CODE
 
-stopwords = [
+function removeStopwords(str) {
+  var res = [];
+  var words = str.split(" ");
+  for (i = 0; i < words.length; i++) {
+    var wordClean = words[i].split(".").join("");
+    if (!stopwords.includes(wordClean.toLowerCase())) {
+      res.push(wordClean);
+    }
+  }
+  return res.join(" ");
+}
+
+function countWords(str) {
+  if (!str) return 0;
+  return str.trim().split(/\s+/).length;
+}
+
+function calculateLikelihood(suggestion, inputLength, priority, matches) {
+  var lengthWeight = Math.min(0, inputLength - countWords(suggestion.query));
+  var frequencyWeight = Math.pow(suggestion.frequency, 0.66);
+  var similarityWeight = matches * 5;
+  if (priority == "frequency") {
+    return (
+      lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
+    );
+  } else if (priority == "similarity") {
+    return (
+      lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
+    );
+  } else {
+    return (
+      lengthWeight * 0.5 + frequencyWeight * 0.25 + similarityWeight * 0.25
+    );
+  }
+}
+
+function customSort(a, b, likelihoodDict) {
+  return likelihoodDict[b.query] - likelihoodDict[a.query];
+}
+
+function mergeSuggestions(
+  likelihoodDict,
+  prefix,
+  pattern = undefined,
+  anyWord = undefined,
+  num = 20
+) {
+  prefix = prefix.splice(0, num);
+  attachMatchType(prefix, "prefix");
+  if (pattern) {
+    attachMatchType(pattern, "pattern");
+    prefix = prefix.concat(pattern.splice(0, num - prefix.length));
+  }
+
+  if (anyWord) {
+    attachMatchType(anyWord, "anyWord");
+    prefix = prefix.concat(anyWord.splice(0, num - prefix.length));
+  }
+  attachLikelihoods(prefix, likelihoodDict);
+  return prefix;
+}
+
+function attachLikelihoods(suggestionsSplice, likelihoodDict) {
+  for (i in suggestionsSplice) {
+    suggestionsSplice[i].likelihood =
+      likelihoodDict[suggestionsSplice[i].query];
+  }
+}
+
+function attachMatchType(suggestionsSplice, matchType) {
+  for (i in suggestionsSplice) {
+    suggestionsSplice[i].matchType = matchType;
+  }
+}
+
+/**
+ * Initializes the databse with random frequencies.
+ * Longer words have a higher chance to get higher frequencies to level the playing field.
+ */
+function randomizeData() {
+  for (i in data) {
+    data[i].frequency =
+      1 +
+      Math.floor(Math.random() * 3) +
+      20 * Math.floor(Math.random() * (1 + 0.002 * countWords(data[i].query))) +
+      10 * Math.floor(Math.random() * (1 + 0.01 * countWords(data[i].query))) +
+      5 * Math.floor(Math.random() * (1 + 0.02 * countWords(data[i].query)));
+  }
+}
+
+const stopwords = [
   "i",
   "me",
   "my",
@@ -316,92 +405,3 @@ stopwords = [
   "should",
   "now",
 ];
-function removeStopwords(str) {
-  var res = [];
-  var words = str.split(" ");
-  for (i = 0; i < words.length; i++) {
-    var wordClean = words[i].split(".").join("");
-    if (!stopwords.includes(wordClean.toLowerCase())) {
-      res.push(wordClean);
-    }
-  }
-  return res.join(" ");
-}
-
-function countWords(str) {
-  if (!str) return 0;
-  return str.trim().split(/\s+/).length;
-}
-
-function calculateLikelihood(suggestion, priority, matches) {
-  var lengthWeight = -countWords(suggestion.query);
-  var frequencyWeight = Math.pow(suggestion.frequency, 0.66);
-  var similarityWeight = matches * 3;
-  if (priority == "frequency") {
-    return (
-      lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
-    );
-  } else if (priority == "similarity") {
-    return (
-      lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
-    );
-  } else {
-    return (
-      lengthWeight * 0.5 + frequencyWeight * 0.25 + similarityWeight * 0.25
-    );
-  }
-}
-
-function customSort(a, b, likelihoodDict) {
-  return likelihoodDict[b.query] - likelihoodDict[a.query];
-}
-
-function mergeSuggestions(
-  likelihoodDict,
-  prefix,
-  pattern = undefined,
-  anyWord = undefined,
-  num = 20
-) {
-  prefix = prefix.splice(0, num);
-  attachMatchType(prefix, "prefix");
-  if (pattern) {
-    attachMatchType(pattern, "pattern");
-    prefix = prefix.concat(pattern.splice(0, num - prefix.length));
-  }
-
-  if (anyWord) {
-    attachMatchType(anyWord, "anyWord");
-    prefix = prefix.concat(anyWord.splice(0, num - prefix.length));
-  }
-  attachLikelihoods(prefix, likelihoodDict);
-  return prefix;
-}
-
-function attachLikelihoods(suggestionsSplice, likelihoodDict) {
-  for (i in suggestionsSplice) {
-    suggestionsSplice[i].likelihood =
-      likelihoodDict[suggestionsSplice[i].query];
-  }
-}
-
-function attachMatchType(suggestionsSplice, matchType) {
-  for (i in suggestionsSplice) {
-    suggestionsSplice[i].matchType = matchType;
-  }
-}
-
-/**
- * Initializes the databse with random frequencies.
- * Longer words have a higher chance to get higher frequencies to level the playing field.
- */
-function randomizeData() {
-  for (i in data) {
-    data[i].frequency =
-      1 +
-      Math.floor(Math.random() * 3) +
-      20 * Math.floor(Math.random() * (1 + 0.002 * countWords(data[i].query))) +
-      10 * Math.floor(Math.random() * (1 + 0.01 * countWords(data[i].query))) +
-      5 * Math.floor(Math.random() * (1 + 0.02 * countWords(data[i].query)));
-  }
-}
