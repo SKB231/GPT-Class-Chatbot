@@ -31,7 +31,7 @@ final class Service: ObservableObject {
                     self.promtResults.removeAll()
                     print("recieved something! 1")
                     for message in messages {
-                        let question = message["question"] as? String ?? "Undefined"
+                        let question = message["query"] as? String ?? "Undefined"
                         self.promtResults.append(question)
                     }
                 }
@@ -56,6 +56,10 @@ final class Service: ObservableObject {
                     
         }
         socket.connect()
+    }
+    
+    public func updateQueryFrequency(question: String) {
+        socket.emit("UpdateQuestionFrequency", question);
     }
     
     public func attemptSocketConnection() {
@@ -92,7 +96,14 @@ struct SocketTest : View {
     
     @State var useGPT: Bool = false
     @State private var showSuggestions = false
-
+    
+    @State var number: Int
+    
+    init(number: Int) {
+        self.number = number
+    }
+    
+    
     var body: some View {
         VStack {
             ScrollView{
@@ -112,6 +123,8 @@ struct SocketTest : View {
                         .onTapGesture {
                             currentMessage = suggestion
                             showSuggestions = false
+                            
+                            service.updateQueryFrequency(question: suggestion)
                             // enter fucntion/function body here
                             service.clearAllPromts()
                             
@@ -208,7 +221,9 @@ struct SocketTest : View {
     }
     
     func sendPromt() {
-        service.socket.emit("RecieveAutoCompleteRequest", currentMessage)
+        if(currentMessage != "") {
+            service.socket.emit("RecieveAutoCompleteRequest", currentMessage)
+        }
     }
     
     func toggleGPTTag() {
@@ -226,7 +241,7 @@ struct SocketTest : View {
 
 struct Previews_SocketTest_Previews: PreviewProvider {
     static var previews: some View {
-        SocketTest()
+        SocketTest(number: 10)
     }
 }
 
