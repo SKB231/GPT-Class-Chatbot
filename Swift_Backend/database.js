@@ -233,31 +233,31 @@ function mergeSuggestions(
   anyWord = undefined,
   num = 20
 ) {
-  prefix = prefix.splice(0, num);
+  prefix = prefix.slice(0, num);
   attachMatchType(prefix, "prefix");
   if (pattern) {
     attachMatchType(pattern, "pattern");
-    prefix = prefix.concat(pattern.splice(0, num - prefix.length));
+    prefix = prefix.concat(pattern.slice(0, num - prefix.length));
   }
 
   if (anyWord) {
     attachMatchType(anyWord, "anyWord");
-    prefix = prefix.concat(anyWord.splice(0, num - prefix.length));
+    prefix = prefix.concat(anyWord.slice(0, num - prefix.length));
   }
   attachLikelihoods(prefix, likelihoodDict);
   return prefix;
 }
 
-function attachLikelihoods(suggestionsSplice, likelihoodDict) {
-  for (i in suggestionsSplice) {
-    suggestionsSplice[i].likelihood =
-      likelihoodDict[suggestionsSplice[i].query];
+function attachLikelihoods(suggestionSlice, likelihoodDict) {
+  for (i in suggestionSlice) {
+    suggestionSlice[i].likelihood =
+      likelihoodDict[suggestionSlice[i].query];
   }
 }
 
-function attachMatchType(suggestionsSplice, matchType) {
-  for (i in suggestionsSplice) {
-    suggestionsSplice[i].matchType = matchType;
+function attachMatchType(suggestionSlice, matchType) {
+  for (i in suggestionSlice) {
+    suggestionSlice[i].matchType = matchType;
   }
 }
 
