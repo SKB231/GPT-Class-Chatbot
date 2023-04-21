@@ -102,44 +102,48 @@ function writeDataToJson() {
  * @param {number} [num = 20] The number of queries to return.
  * @returns {Object[]} A list of objects which contains a query and its relevant data. Attaches a likelihood property as well.
  */
-function autocomplete(input, priority = "length", num = 20) {
+function autocomplete(input, weights = [1/3, 1/3, 1/3], num = 20) {
   if (data == null) {
     return [];
   }
-  input = input.trim();
+  input = input.toLowerCase();
+  input = input.trimStart();
   var sanitizedInput = input.replaceAll(/[&/\\#,+()$~%.^'":*?<>{}]/g, "");
   var stopWordsRemoved = removeStopwords(sanitizedInput);
   try {
     var prefix = new RegExp(`^${sanitizedInput}`, "i");
     var pattern = new RegExp(`${sanitizedInput}`, "i");
-    var anyWord =
-      stopWordsRemoved == ""
-        ? /^$/
-        : new RegExp(
-            "(?<= |-|_)" +
-              stopWordsRemoved.replace(/ /gi, "(?= |-|_)|(?<= |-|_)"),
-            "gi"
-          );
-    console.log(prefix);
-    console.log(pattern);
-    console.log(anyWord);
+    var anyWord = /^$/;
+    if (stopWordsRemoved != "") {
+      var anyWordString = "(?<= |-|_)" + stopWordsRemoved.replace(/ (?!\B)/gi, "(?= |-|_|s )|(?<= |-|_)")
+      if (input.charAt(input.length - 1) == " ") {
+        anyWordString = anyWordString.trimEnd() + "(?= |-|_|\\?|\\.|s |)"
+      }
+      var anyWord = new RegExp(anyWordString, "gi")
+      console.log(anyWord)
+    }
   } catch (err) {
     console.log("Error forming regular expression on user input");
     console.log(err.message);
     return [];
   }
+  input = input.trim()
 
-  if (input == "") {
-    priority = "frequency";
-  }
-  var matchesDict = {};
-  var likelihoodDict = {};
+  var likelihoodDict = {}
+  var inputLength = countWords(input)
   for (i in data) {
     var matchedWords = data[i].query.match(anyWord);
-    matchedWords = matchedWords != null ? matchedWords.length : 0;
-    matchesDict[data[i].query] = matchedWords;
-    var inputLength = countWords(input)
-    var likelihood = calculateLikelihood(data[i], inputLength, priority, matchedWords);
+    var numMatchedWords = 0;
+    var uniqueMatches = {};
+    if (matchedWords != null) {
+      matchedWords.forEach(match => {
+        if (!uniqueMatches[match]) {
+          uniqueMatches[match] = true;
+          numMatchedWords++;
+        }
+      });
+    }
+    var likelihood = calculateLikelihood(data[i], inputLength, weights, numMatchedWords);
     likelihoodDict[data[i].query] = likelihood;
   }
 
@@ -158,7 +162,6 @@ function autocomplete(input, priority = "length", num = 20) {
   patternSuggestions = patternSuggestions.filter(
     (item) => !prefixSuggestions.includes(item)
   );
-
   if (prefixSuggestions.length + patternSuggestions.length >= num) {
     return mergeSuggestions(
       likelihoodDict,
@@ -203,23 +206,12 @@ function countWords(str) {
   return str.trim().split(/\s+/).length;
 }
 
-function calculateLikelihood(suggestion, inputLength, priority, matches) {
-  var lengthWeight = Math.min(0, inputLength - countWords(suggestion.query));
-  var frequencyWeight = Math.pow(suggestion.frequency, 0.66);
-  var similarityWeight = matches * 5;
-  if (priority == "frequency") {
-    return (
-      lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
-    );
-  } else if (priority == "similarity") {
-    return (
-      lengthWeight * 0.25 + frequencyWeight * 0.5 + similarityWeight * 0.25
-    );
-  } else {
-    return (
-      lengthWeight * 0.5 + frequencyWeight * 0.25 + similarityWeight * 0.25
-    );
-  }
+function calculateLikelihood(suggestion, inputLength, weights = [1/3, 1/3, 1/3], matches) {
+
+  var lengthScore = Math.min(0, inputLength - countWords(suggestion.query));
+  var frequencyScore = Math.pow(suggestion.frequency - 1, 0.66);
+  var similarityScore = (matches - 1) * 5;
+  return weights[0] * lengthScore + weights[1] * frequencyScore + weights[2] * similarityScore
 }
 
 function customSort(a, b, likelihoodDict) {
@@ -234,14 +226,11 @@ function mergeSuggestions(
   num = 20
 ) {
   prefix = prefix.slice(0, num);
-  attachMatchType(prefix, "prefix");
   if (pattern) {
-    attachMatchType(pattern, "pattern");
     prefix = prefix.concat(pattern.slice(0, num - prefix.length));
   }
 
   if (anyWord) {
-    attachMatchType(anyWord, "anyWord");
     prefix = prefix.concat(anyWord.slice(0, num - prefix.length));
   }
   attachLikelihoods(prefix, likelihoodDict);
@@ -255,12 +244,6 @@ function attachLikelihoods(suggestionSlice, likelihoodDict) {
   }
 }
 
-function attachMatchType(suggestionSlice, matchType) {
-  for (i in suggestionSlice) {
-    suggestionSlice[i].matchType = matchType;
-  }
-}
-
 /**
  * Initializes the databse with random frequencies.
  * Longer words have a higher chance to get higher frequencies to level the playing field.
@@ -270,9 +253,9 @@ function randomizeData() {
     data[i].frequency =
       1 +
       Math.floor(Math.random() * 3) +
-      20 * Math.floor(Math.random() * (1 + 0.002 * countWords(data[i].query))) +
-      10 * Math.floor(Math.random() * (1 + 0.01 * countWords(data[i].query))) +
-      5 * Math.floor(Math.random() * (1 + 0.02 * countWords(data[i].query)));
+      8 * Math.floor(Math.random() * (1 + 0.001 * countWords(data[i].query))) +
+      5 * Math.floor(Math.random() * (1 + 0.01 * countWords(data[i].query))) +
+      3 * Math.floor(Math.random() * (1 + 0.02 * countWords(data[i].query)));
   }
 }
 
@@ -405,3 +388,9 @@ const stopwords = [
   "should",
   "now",
 ];
+
+// start = new Date()
+// a = autocomplete('cosine signal addition ')
+// end = new Date()
+// console.log(a)
+// console.log(end - start)
