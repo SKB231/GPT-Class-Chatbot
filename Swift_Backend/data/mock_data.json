@@ -6502,7 +6502,7 @@
     },
     {
         "query": "what are cosine signals or sine signals equivalent to?",
-        "frequency": 7,
+        "frequency": 5,
         "users": [
             "mock"
         ],
@@ -39821,7 +39821,7 @@
     },
     {
         "query": "how many cosine signals of the same frequency could be combined by phasor addition?",
-        "frequency": 1,
+        "frequency": 4,
         "users": [
             "mock"
         ],

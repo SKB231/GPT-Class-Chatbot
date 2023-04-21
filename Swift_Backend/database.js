@@ -143,6 +143,7 @@ function autocomplete(input, weights = [1/3, 1/3, 1/3], num = 20) {
         }
       });
     }
+    data[i].matches = Array.from(new Set(matchedWords))
     var likelihood = calculateLikelihood(data[i], inputLength, weights, numMatchedWords);
     likelihoodDict[data[i].query] = likelihood;
   }
@@ -210,7 +211,7 @@ function calculateLikelihood(suggestion, inputLength, weights = [1/3, 1/3, 1/3],
 
   var lengthScore = Math.min(0, inputLength - countWords(suggestion.query));
   var frequencyScore = Math.pow(suggestion.frequency - 1, 0.66);
-  var similarityScore = (matches - 1) * 5;
+  var similarityScore = (matches - 1) * 6;
   return weights[0] * lengthScore + weights[1] * frequencyScore + weights[2] * similarityScore
 }
 
@@ -391,6 +392,15 @@ const stopwords = [
 
 // start = new Date()
 // a = autocomplete('cosine signal addition ')
+// b = []
 // end = new Date()
-// console.log(a)
+// for (i in a) {
+//   b.push({
+//     query: a[i].query,
+//     frequency: a[i].frequency,
+//     matches: a[i].matches,
+//     likelihood: Math.round(a[i].likelihood * 1000) / 1000
+//   })
+// }
+// console.log(b)
 // console.log(end - start)
