@@ -1,0 +1,3 @@
+Hey! Welcome to my branch. My two main responsibilities were managing data and supplying autocomplete suggestions. Almost all work is located at Swift_Backend/database.js. This file has documentation, so feel free to take a look to understand what each function does.
+
+There is some incomplete work at firebase.js. If we ever plan to use more than one server, we will need to migrate to Firebase. However, I set up the local database to be easily transferrable to Firebase. It's NoSQL and has timestamps that can be converted to Firebase timestamps by just passing them in to a constructor. Hopefully this will help with the longetivity of the project, especially since I won't be working on it for later semesters.
