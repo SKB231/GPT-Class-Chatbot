@@ -6,10 +6,10 @@ This repository tracks the development for a iOS GPTChatBot. This is meant to be
 - Alvin Fabrio Tama Arel
 - Max Everest
 
-# File Structure
+## File Structure
 
-## Frontend
+### Frontend
 // TODO
 
-## Backend
+### Backend
 The backend code is in /Swift_Backend/. The backend API endpoints for managing the database and retrieving autocomplete suggestions are at /Swift_Backend/database.js. The code to host the Socket.io server is at /Swift_Backend/server.js. 
