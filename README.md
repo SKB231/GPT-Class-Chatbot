@@ -1,6 +1,38 @@
 # ITS-Swift-GPTChatBot
 This repository tracks the development for a iOS GPTChatBot. This is meant to be a component to the Swift QuizApp.
 
+The goal of this application is to allow students to easily access questions and get course-relevant answers from the model along with leveraging the model’s power to help explain the concepts easily.
+![image](https://github.com/SKB231/GPT-Class-Chatbot/assets/80944218/881a428f-02cb-41bf-acbe-afc7274d92f9)
+
+
+In addition to answering questions relevant to course material, the chatbot can take additional information in the input such as course logistics and answer them as well.
+![image](https://github.com/SKB231/GPT-Class-Chatbot/assets/80944218/09ede305-5fe4-4ce0-a934-5c2648da5558)
+
+By specifying the course textbook the chatbot can limit the scope of answers to that of the textbook.
+Similarly, it can be extremely helpful in helping students practice their concepts, and not just understand them.
+
+![image](https://github.com/SKB231/GPT-Class-Chatbot/assets/80944218/6e4291ff-0169-4e5a-8d48-694eda688e54)
+
+
+### Chat Interface
+Interactive and simplistic design 
+Full emphasis on ease of use 
+A simulation of texting messaging application 
+Several modes: GPT active & Profesor override 
+
+![image](https://github.com/SKB231/GPT-Class-Chatbot/assets/80944218/8f241735-ab05-4c96-8b97-41c6bff4fc04)
+
+### Autocomplete functionality:
+- Averages around 0.03s to compute!
+- Filters + Primary Sort Order
+- Prefix Matches
+- Pattern Matches
+- Any Word Matches
+- Auxiliary Weighing Function
+-   Strategically weighs together length, frequency, and similarity to produce a likelihood.
+-   Used to further sort suggestions within the primary sort categories.
+
+
 ## Fall 2022 Team Memebrs
 - Shreekrishna R Bhat
 - Alvin Fabrio Tama Arel
