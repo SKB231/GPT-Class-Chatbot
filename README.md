@@ -1,7 +1,7 @@
 # ITS-Swift-GPTChatBot
 This repository tracks the development for a iOS GPTChatBot. This is meant to be a component to the Swift QuizApp.
 
-## Fall 2022 Team Memebrs
+## Fall 2023 Team Memebrs
 - Shreekrishna R Bhat
 - 
 
