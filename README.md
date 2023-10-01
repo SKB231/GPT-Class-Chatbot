@@ -3,7 +3,8 @@ This repository tracks the development for a iOS GPTChatBot. This is meant to be
 
 ## Fall 2023 Team Memebrs
 - Shreekrishna R Bhat
-- 
+- Phillip Phanhthourath
+- Reese Wang
 
 ## Project running instructions:
 To setup run the project we need to do two things:
