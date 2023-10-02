@@ -1,6 +1,6 @@
 const { registerQuery, autocomplete, writeDataToJson } = require("./database");
 require("dotenv").config();
-const io = require("socket.io")(3000);
+const io = require("socket.io")(process.env.PORT);
 
 const Chat = require("./Utilities/RunOpenAIPrompt");
 
@@ -29,15 +29,16 @@ io.on("connection", (socket) => {
     console.log("Recieved message: " + data);
     const matchParam = /^\/(\w+)/;
     const matchMessage = /^\/\w+\s+(\w+)/;
-
     const match = data.match(matchParam);
     let returnMessage = "";
+    console.log(match)
     if (match && match[1] === "useGPT" && data.match(matchMessage)) {
       const message = data.substring(data.indexOf(" ") + 1);
       chatInstance.addMessage("user", message);
       chatInstance.getTextResponse(callback);
     } else {
       returnMessage = data;
+
       io.emit("RecieveMessageResponse", {
         msg: "Recieved Message",
         sender: "GPT",
@@ -53,11 +54,12 @@ io.on("connection", (socket) => {
 
 callback = (outputMessage) => {
   console.log(outputMessage);
-  //io.emit("RecieveMessageResponse", { "msg": outputMessage, "sender": "GPT" });
+  io.emit("RecieveMessageResponse", { "msg": outputMessage, "sender": "GPT" });
 };
 
-console.log("Server is running...");
-//retrieveQuery("what can be started with the command demo?"));
+console.log(`Server is running on port ${process.env.PORT}`);
+
+// retrieveQuery("what can be started with the command demo?");
 
 // start = Date.now()
 // console.log("Query: what are fir filt-")
