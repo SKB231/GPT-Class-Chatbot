@@ -6,6 +6,14 @@ const Chat = require("./Utilities/RunOpenAIPrompt");
 
 const connections = [];
 
+io.use((socket,next)=>{
+  const sessionID = socket.handshake.auth;//.sessionID
+  console.log(socket.handshake.auth);
+  socket.join('room1');
+  console.log();
+  next();
+});
+
 io.on("connection", (socket) => {
   connections.push(socket);
   console.log("%s sockets are connected.", connections.length);
