@@ -1,7 +1,7 @@
 class Student {
     constructor(googleID) {
         this.googleID = googleID
-        this.messages = []
+        this.messages = [] 
         this.topics = []// [(topicName, time), ]
     }
 
