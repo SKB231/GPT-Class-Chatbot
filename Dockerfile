@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 
 
-COPY . .
+COPY ./Swift_Backend/. .
 RUN npm install
 
 CMD ["npm", "start"]
