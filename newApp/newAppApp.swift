@@ -12,7 +12,7 @@ struct newAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            SocketTest(number: 10)
+            LogIn()
         }
     }
 }
