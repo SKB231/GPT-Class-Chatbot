@@ -111,6 +111,13 @@ struct LogIn: View {
                                 
                                 print("User Signed In");
                                 self.showChatScreen = true
+
+                                let user = Auth.auth().currentUser;
+                                print(user);
+                                let userInfo = user.providerData;
+                                print(userInfo);
+                                //let userInfo = Auth.auth().currentUser?.providerData[indexPath.row]
+                                //cell?.textLabel?.text = userInfo?.providerID
                             }
                             
                           // ...
