@@ -114,11 +114,13 @@ struct LogIn: View {
                                 
                                 print("User Signed In");
                                 self.showChatScreen = true
-                                @ObservedObject var service = Service()
-                                let UserIdentity = Auth.auth().currentUser?.uid
-                                self.service.GoogleUID = UserIdentity!
-                                socketTest.service = self.service
-                                
+
+                                let user = Auth.auth().currentUser;
+                                print(user);
+                                let userInfo = user.providerData;
+                                print(userInfo);
+                                //let userInfo = Auth.auth().currentUser?.providerData[indexPath.row]
+                                //cell?.textLabel?.text = userInfo?.providerID
                             }
                             
                           // ...
