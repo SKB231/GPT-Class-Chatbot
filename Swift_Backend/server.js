@@ -33,17 +33,24 @@ io.on("connection", (socket) => {
 
   socket.on("RecieveUserMessage", async (data) => {
     console.log("Recieved message: " + data);
+
+    const dataObject = await JSON.parse(data)
+
+    const userID = dataObject["userId"]
+    const message = dataObject["message"]
+    console.log("Recieved message from user with ID: ", userID, "!")
     const matchParam = /^\/(\w+)/;
     const matchMessage = /^\/\w+\s+(\w+)/;
-    const match = data.match(matchParam);
+    const match = message.match(matchParam);
     let returnMessage = "";
     console.log(match);
-    if (match && match[1] === "useGPT" && data.match(matchMessage)) {
-      const message = data.substring(data.indexOf(" ") + 1);
-      chatInstance.addMessage("user", message);
+    if (match && match[1] === "useGPT" && message.match(matchMessage)) {
+
+      const messageWithoutPrefix = message.substring(message.indexOf(" ") + 1);
+      chatInstance.addMessage("user", messageWithoutPrefix);
       chatInstance.getTextResponse(callback);
     } else {
-      returnMessage = data;
+      returnMessage = message;
 
       io.emit("RecieveMessageResponse", {
         msg: "Recieved Message",
@@ -52,8 +59,8 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("UpdateQuestionFrequency", async (data) => {
-    registerQuery(data);
+  socket.on("UpdateQuestionFrequency", async (message) => {
+    registerQuery(message);
     writeDataToJson();
   });
 });

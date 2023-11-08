@@ -204,17 +204,23 @@ struct SocketTest : View {
     
     //Send button set on Action
     func sendMessage(){
+        
         service.addMessage(newMessage: currentMessage, sender: MessageSender.user)
+       
+        
         if service.connected == false {
             sendFakeGPTMessage(message: "Message was not recieved. Wait for connection to Socket, attempting socket connection again: ")
             service.attemptSocketConnection()
         } else {
             if useGPT == true{
-                service.socket.emit("RecieveUserMessage", ("/useGPT "+currentMessage))
-            } else {
-                print("Hlwjehwrg")
-                service.socket.emit("RecieveUserMessage", (currentMessage))
+                currentMessage = "/useGPT " + currentMessage
             }
+            let finalMessage = String(format:
+    """
+    {"userId": "%@","message": "%@"}
+    """, service.GoogleUID, currentMessage)
+            print(finalMessage)
+            service.socket.emit("RecieveUserMessage", finalMessage)
         }
         currentMessage = ""
     }
