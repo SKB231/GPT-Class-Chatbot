@@ -4,12 +4,12 @@ import SwiftUI
 import SocketIO
 
 final class Service: ObservableObject {
-    private var manager = SocketManager(socketURL: URL(string: "ws://localhost:3000")!, config:[.log(true), .compress])
-    @Published var messages = [ChatMessage]()
-    @Published var promtResults = [String]()
-    public var socket : SocketIOClient
-    public var connected : Bool = false
-    
+    private var manager = SocketManager(socketURL: URL(string: "ws://localhost:6000")!, config:[.log(true), .compress])
+    @Published var messages = [ChatMessage]();
+    @Published var promtResults = [String]();
+    public var socket : SocketIOClient;
+    public var connected : Bool = false;
+    @Published public var GoogleUID: String = "";
     init () {
         socket = manager.defaultSocket
         print("creating the event handler for the connect event:");
@@ -58,6 +58,7 @@ final class Service: ObservableObject {
         socket.connect()
     }
     
+    
     public func updateQueryFrequency(question: String) {
         socket.emit("UpdateQuestionFrequency", question);
     }
@@ -97,10 +98,7 @@ struct SocketTest : View {
     @State var useGPT: Bool = false
     @State private var showSuggestions = false
     
-    @State var number: Int
-    
-    init(number: Int) {
-        self.number = number
+    init() {
     }
     
     
@@ -108,6 +106,7 @@ struct SocketTest : View {
         VStack {
             ScrollView{
                 LazyVStack {
+                    Text(service.GoogleUID)
                     ForEach(service.messages, id: \.id) { message in
                         messageView(message: message)
                     }
@@ -199,6 +198,7 @@ struct SocketTest : View {
                 .background(message.sender == .user ? .blue : .gray.opacity(0.1))
                 .cornerRadius(16)
             if message.sender == .gpt {Spacer() }
+            //try and send additional parameters along with message.
         }
     }
     
@@ -214,7 +214,6 @@ struct SocketTest : View {
             } else {
                 print("Hlwjehwrg")
                 service.socket.emit("RecieveUserMessage", (currentMessage))
-
             }
         }
         currentMessage = ""
@@ -241,7 +240,7 @@ struct SocketTest : View {
 
 struct Previews_SocketTest_Previews: PreviewProvider {
     static var previews: some View {
-        SocketTest(number: 10)
+        SocketTest()
     }
 }
 

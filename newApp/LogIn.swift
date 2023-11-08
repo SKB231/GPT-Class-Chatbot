@@ -15,11 +15,14 @@ let ques = DataLoader().userData
 struct LogIn: View {
     @State private var username = ""
     @State private var password = ""
-    @State private var wrongUsername = 0
+    @State private var wrongUsername  = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
     @State private var goRegister = false
     @State private var showChatScreen = false
+    
+    @State private var service = Service()
+    @State private var socketTest = SocketTest()
     var body: some View {
         NavigationView {
             ZStack {
@@ -111,6 +114,11 @@ struct LogIn: View {
                                 
                                 print("User Signed In");
                                 self.showChatScreen = true
+                                @ObservedObject var service = Service()
+                                let UserIdentity = Auth.auth().currentUser?.uid
+                                self.service.GoogleUID = UserIdentity!
+                                socketTest.service = self.service
+                                
                             }
                             
                           // ...
@@ -120,7 +128,7 @@ struct LogIn: View {
                     .frame(width: 300, height: 50)
                     .background(Color.orange)
                     .cornerRadius(10)
-                    NavigationLink(destination: SocketTest(number: 10), isActive: $showChatScreen) {
+                    NavigationLink(destination: self.socketTest, isActive: $showChatScreen) {
                         EmptyView()
                     }
                 }

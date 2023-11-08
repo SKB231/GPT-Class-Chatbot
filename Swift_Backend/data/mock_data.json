@@ -74,7 +74,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "intro covers what?",
@@ -85,7 +86,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "helpdesk, helpwin, and doc bring up what interface?",
@@ -166,14 +168,17 @@
     },
     {
         "query": "what is used to separate rows in a matrix definition?",
-        "frequency": 1,
+        "frequency": 2,
         "users": [
-            "mock"
+            "mock",
+            "unknown"
         ],
         "time_stamps": [
-            1681588255947
+            1681588255947,
+            1699308176339
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "spaces or commas (,) are used to what?",
@@ -184,7 +189,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is used to separate column entries?",
@@ -195,7 +201,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can always be extracted with the size operator?",
@@ -221,14 +228,17 @@
     },
     {
         "query": "what is a scalar a matrix with only one element; its size is?",
-        "frequency": 5,
+        "frequency": 6,
         "users": [
-            "mock"
+            "mock",
+            "unknown"
         ],
         "time_stamps": [
-            1681588255947
+            1681588255947,
+            1699305469097
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many rows or columns does a vector have?",
@@ -250,7 +260,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can individual elements of a matrix variable be accessed by giving the row index and column index?",
@@ -283,7 +294,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is helpful for creating vectors of evenly spaced values?",
@@ -316,7 +328,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the default increment without the skip parameter?",
@@ -338,7 +351,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "where is the scalar element located?",
@@ -371,7 +385,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the colon also serves as what?",
@@ -393,7 +408,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a vector consisting of the entire 2nd row of the matrix a?",
@@ -404,7 +420,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "indexing backwards flips what?",
@@ -415,7 +432,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is sometimes necessary to work with a list of all the values in a matrix?",
@@ -426,7 +444,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what gives a column vector that is merely the columns of a concatenated together?",
@@ -437,7 +456,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be accomplished with the reshape(a,m,n) function?",
@@ -448,7 +468,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can the matrix a be reshaped into a matrix?",
@@ -470,7 +491,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are the default operations in matlab?",
@@ -481,7 +503,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "a*b means what?",
@@ -492,7 +515,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be carried out only if the two matrices have compatible dimensions?",
@@ -503,7 +527,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the number of columns in must equal what?",
@@ -514,7 +539,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can a matrix multiply to give a result that is?",
@@ -525,7 +551,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what property applies only in special cases?",
@@ -536,7 +563,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is not commutative?",
@@ -580,18 +608,22 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are two special cases of matrix multiplication?",
-        "frequency": 1,
+        "frequency": 2,
         "users": [
-            "mock"
+            "mock",
+            "unknown"
         ],
         "time_stamps": [
-            1681588255947
+            1681588255947,
+            1699310087821
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in the outer product, a column vector multiplies a row vector to give what?",
@@ -602,7 +634,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what multiplies a row vector to give a matrix?",
@@ -613,7 +646,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many times do we repeat the column vector with all 1s in the row vector?",
@@ -657,7 +691,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in the pointwise case, what must have exactly the same size in both dimensions?",
@@ -668,7 +703,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can two matrices be multiplied pointwise?",
@@ -690,7 +726,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does matlab do when point is used with another arithmetic operator?",
@@ -701,7 +738,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "why is array multiplication commutative?",
@@ -712,7 +750,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what modifies that operators usual matrix definition to a pointwise one?",
@@ -723,7 +762,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does xx = (0.9) generate a vector whose values are equal to, for?",
@@ -734,7 +774,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is matlab capable of producing?",
@@ -756,7 +797,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many vectors does the calling syntax for both plot and stem take?",
@@ -778,7 +820,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is shown in the top panel of fig.<unk>?",
@@ -789,7 +832,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what produces the “lollipop” presentation of the same data?",
@@ -811,7 +855,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is another name for help graph2d?",
@@ -844,7 +889,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "matlab writes graphics to what window?",
@@ -877,7 +923,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what will pop up a new figure window that can be refered to by the number n?",
@@ -888,7 +935,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what makes it active if it already exists?",
@@ -899,7 +947,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "control over many window attributes is also possible with what command?",
@@ -910,7 +959,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does figure command initialize of the plot window?",
@@ -921,7 +971,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what function divides the window into tiles?",
@@ -932,7 +983,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does subplot do?",
@@ -976,7 +1028,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "where is the program that creates fig.<unk> given?",
@@ -987,7 +1040,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "to a printer or saved to a file using the print command?",
@@ -998,7 +1052,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "to send the current figure window to the default printer, simply type what?",
@@ -1009,7 +1064,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the device format specifies which language will be used?",
@@ -1042,7 +1098,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "-deps myplot the postscript format is convenient when plots are kept for what purpose?",
@@ -1053,7 +1110,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "most transcendental functions follow what rule?",
@@ -1064,7 +1122,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "programming constructs matlab supports the paradigm of what?",
@@ -1075,7 +1134,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is it possible to nest a sequence of function calls?",
@@ -1097,7 +1157,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how are individual functions combined to get the output?",
@@ -1119,7 +1180,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what should be avoided?",
@@ -1152,7 +1214,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does cos(x) return if x is an array?",
@@ -1185,7 +1248,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be controlled in matlab using if statements, while loops, and for loops?",
@@ -1218,7 +1282,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can any expression that can be entered at the matlab prompt be stored in?",
@@ -1262,7 +1327,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the script is executed in what?",
@@ -1273,7 +1339,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are m-files?",
@@ -1284,7 +1351,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the name of the file where the commands are saved?",
@@ -1295,7 +1363,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many commands are executed as if they had been typed in at the command prompt?",
@@ -1328,7 +1397,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is created as an ascii file with a text editor?",
@@ -1339,7 +1409,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the first word in the m-file must be what function?",
@@ -1350,7 +1421,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what must be the keyword function to tell matlab that this file is to be treated as a function with arguments?",
@@ -1372,7 +1444,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what must end in the filename for the m-file?",
@@ -1405,7 +1478,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the file extract the last elements from?",
@@ -1416,7 +1490,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does foo get last l points of x % usage: % y = foo( x, l )?",
@@ -1427,7 +1502,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does output vector n mean?",
@@ -1449,7 +1525,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "if the file is called foo.m, the operation may be invoked from what?",
@@ -1460,7 +1537,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what will be the output of the last seven elements of the vector (1:2:37)?",
@@ -1471,7 +1549,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be written according to a standard format?",
@@ -1504,7 +1583,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does clip.m contain?",
@@ -1559,7 +1639,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what should the function match?",
@@ -1592,7 +1673,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the function name?",
@@ -1625,7 +1707,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how does the size(x) function return the number of rows and number of columns into separate output variables?",
@@ -1636,7 +1719,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does matlab return when the function completes?",
@@ -1647,7 +1731,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the last line of the function assign the clipped vector to?",
@@ -1669,7 +1754,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does matlab use to make local copies of its arguments?",
@@ -1680,7 +1766,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the essential difference between the function m-file and the script?",
@@ -1702,7 +1789,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a permanent variable in the matlab workspace?",
@@ -1713,7 +1801,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do the temporary arrays created inside clip exist only while?",
@@ -1735,7 +1824,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what should be familiar to anyone experienced with a high-level computer language like c, java, fortran, or pascal?",
@@ -1823,7 +1913,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do we want to restrict the function to operating on?",
@@ -1834,7 +1925,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the bail-out function error print?",
@@ -1889,7 +1981,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in the case of negative numbers, the clipped value must be set to what?",
@@ -1911,7 +2004,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is passed in as a positive number?",
@@ -1933,7 +2027,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "why is clip very inefficient?",
@@ -1966,7 +2061,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is matlab's symbolic debugger integrated with?",
@@ -1988,7 +2084,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is used to set a breakpoint in an m-file?",
@@ -2010,7 +2107,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does dbstop if error occur before executing the m-file?",
@@ -2021,7 +2119,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what allows you to examine variables within functions and also the calling workspace?",
@@ -2054,7 +2153,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what should the function determine the size of?",
@@ -2087,7 +2187,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can one,n, and zeros(m,n) be used?",
@@ -2098,7 +2199,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be avoided by using the outer-product matrix multiply operation discussed in section<unk>?",
@@ -2109,7 +2211,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the following matlab code fragment will do the job for how many columns?",
@@ -2120,7 +2223,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what indicates conjugate transpose x = x * ones(1,11)?",
@@ -2131,7 +2235,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "if x is a length column vector, what is the matrix x formed by the outer product?",
@@ -2153,7 +2258,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is another way to vectorize programs that contain if, else conditionals?",
@@ -2186,7 +2292,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what function contains a logical test and might not seem like a candidate for vector operations?",
@@ -2197,7 +2304,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what relational and logical operators in matlab apply to matrices?",
@@ -2208,7 +2316,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "a greater than test applied to a matrix returns what?",
@@ -2219,7 +2328,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what returns a matrix of ones and zeros?",
@@ -2274,7 +2384,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do we get when we do the pointwise multiply of x by the masking matrix mx?",
@@ -2296,7 +2407,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does clip.m require that we change in x?",
@@ -2329,7 +2441,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many masking matrices are needed to represent the three cases of positive saturation, negative saturation, and no action?",
@@ -2340,7 +2453,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what corresponds to the logical or of these cases?",
@@ -2483,7 +2597,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what must the algorithm be cast in?",
@@ -2516,7 +2631,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "eliminate all what?",
@@ -2560,7 +2676,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be done to reduce the number of comments littering the code?",
@@ -2582,7 +2699,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are tricks used for?",
@@ -2593,7 +2711,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many methods rely on the built-in function sum?",
@@ -2615,7 +2734,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how do you list function m-files in toolboxes?",
@@ -2626,7 +2746,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what command is used to copy the style?",
@@ -2648,7 +2769,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are the most important points involved in writing good matlab code?",
@@ -2659,7 +2781,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are some common programming habits in matlab?",
@@ -2670,7 +2793,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are for loops used to perform?",
@@ -2681,7 +2805,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be used to perform simple operations over an entire matrix or vector?",
@@ -2703,7 +2828,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the difference between calling sum and writing a loop that looks like fortran or c code?",
@@ -2714,7 +2840,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is unbelievably slow owing to the interpreted nature of matlab?",
@@ -2747,7 +2874,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many ways to add all the elements of a matrix?",
@@ -2769,7 +2897,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is it called when an argument is a matrix or a vector?",
@@ -2857,7 +2986,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the title of the book about signals and systems?",
@@ -2890,7 +3020,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do you think of a signal as?",
@@ -2912,7 +3043,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is produced as an acoustic signal?",
@@ -2956,7 +3088,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do we often use to refer to a large organization that administers or implements some process?",
@@ -2967,7 +3100,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a much narrower definition that is very closely linked to signals?",
@@ -2989,7 +3123,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does a cd recording store or represent a music signal as sequence of numbers?",
@@ -3000,7 +3135,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a cd player a system for converting to an acoustic signal that we can hear?",
@@ -3011,7 +3147,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do systems operate on signals to produce?",
@@ -3055,7 +3192,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many solutions does the previous equation have?",
@@ -3066,7 +3204,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are numbers needed to solve for the two roots of a quadratic equation?",
@@ -3077,7 +3216,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "whenever the discriminant is negative, the solution must be expressed as what?",
@@ -3088,7 +3228,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is an extension of the real number system?",
@@ -3110,7 +3251,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in what form is the vector defined by its length and direction?",
@@ -3121,7 +3263,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in polar form, the vector is defined by what?",
@@ -3154,7 +3297,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is always measured with respect to the positive real axis?",
@@ -3187,7 +3331,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the angle may be either positive (counterclockwise) or what?",
@@ -3198,7 +3343,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the principal value of the vector?",
@@ -3253,7 +3399,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in fig.<unk>, the three complex numbers are what is the conversion from polar to rectangular?",
@@ -3264,7 +3411,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many complex numbers are there?",
@@ -3286,7 +3434,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a bit trickier?",
@@ -3319,7 +3468,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in section<unk>, we will introduce two other polar notations.",
@@ -3429,7 +3579,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the vector lies in what quadrant?",
@@ -3462,7 +3613,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the general method for getting the angle of in polar form is since and are both angles to, when should we pick the appropriate one?",
@@ -3506,7 +3658,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "converting between the two types quickly and easily is an important skill.",
@@ -3528,7 +3681,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the ordered pair can be interpreted as what?",
@@ -3627,7 +3781,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the horizontal coordinate called?",
@@ -3638,7 +3793,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the vertical coordinate is called what?",
@@ -3704,7 +3860,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the eulers formula must be immediately recalled.",
@@ -3715,7 +3872,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the inverse euler formulas should also be committed to what?",
@@ -3726,7 +3884,8 @@
         "time_stamps": [
             1681588255947
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many complex numbers can be rewritten as degrees to radians?",
@@ -3814,7 +3973,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "most “scientific” calculators even have the capability to use which notation?",
@@ -3825,7 +3985,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how do you practice computations for complex numbers?",
@@ -3836,7 +3997,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the simple rule for the conjugate?",
@@ -3858,7 +4020,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the name of the matlab program that generates more drill problems?",
@@ -3869,7 +4032,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does zdrill.m stand for?",
@@ -3924,7 +4088,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a common mistake with the inverse?",
@@ -3935,7 +4100,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what presents difficulties when adding or subtracting two?",
@@ -3957,7 +4123,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "an intermediate conversion to what form must be done?",
@@ -4001,7 +4168,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what type of calculator can convert between polar and rectangular form?",
@@ -4012,7 +4180,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "algebraic rules for complex numbers the basic arithmetic operators for complex numbers follow the usual rules of what?",
@@ -4045,7 +4214,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many fundamental rules are there?",
@@ -4078,7 +4248,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is required instead of a direct conversion to rectangular form?",
@@ -4089,7 +4260,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are operations of multiplication and division rather messy in?",
@@ -4199,7 +4371,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "refer to fig.<unk> for examples of what?",
@@ -4210,7 +4383,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the effect of flipping the vector about the horizontal axis?",
@@ -4221,7 +4395,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "figure <unk> shows two examples of what?",
@@ -4595,7 +4770,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the magnitude of?",
@@ -4628,7 +4804,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is one famous identity?",
@@ -4650,7 +4827,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the vectors spiral in what direction?",
@@ -4661,7 +4839,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the angular change between successive powers constant?",
@@ -4705,7 +4884,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what must have roots?",
@@ -4771,7 +4951,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many steps are there to write as?",
@@ -5002,7 +5183,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what has evolved into a powerful programming environment with many built-in functions for doing signal processing and linear algebra?",
@@ -5101,7 +5283,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "mathematical representation of signals signals are patterns of variations that represent or encode what?",
@@ -5112,7 +5295,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "signals have a central role in measuring, probing other physical systems, medical technology, and what else?",
@@ -5123,7 +5307,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is naturally thought of as a pattern of variations in time?",
@@ -5288,7 +5473,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be taken as a definition of the function that assigns a number to each instant of time?",
@@ -5310,7 +5496,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do most signals originate as?",
@@ -5343,7 +5530,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "where can one sample a continuous-time signal at?",
@@ -5475,7 +5663,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the sampling period of fig.<unk>?",
@@ -5607,7 +5796,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are appropriate mathematical representations of still images that do not change with time?",
@@ -5904,7 +6094,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a discrete-time system if the input and output of the system are both discrete time signals?",
@@ -5948,7 +6139,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the squarer system is defined by what equation?",
@@ -6212,7 +6404,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the output of the a-to-d converter?",
@@ -6234,7 +6427,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the a-to-d converter do?",
@@ -6278,7 +6472,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what system is all around us?",
@@ -6410,7 +6605,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what will we show in chapter<unk>?",
@@ -6641,7 +6837,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what class of filters are not the most general class of lti systems?",
@@ -6685,7 +6882,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the degree of the polynomal system function?",
@@ -6905,7 +7103,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how is the filter defined?",
@@ -6971,7 +7170,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in contrast to the fir case, what always produces a finite-length output sequence?",
@@ -6982,7 +7182,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a superposition of scaled and shifted impulse responses?",
@@ -7004,7 +7205,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "why is the impulse response infinite in extent?",
@@ -7092,7 +7294,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the impulse response of the following first-order system look like?",
@@ -7114,7 +7317,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the sum of two terms in notice that the impulse response still decays exponentially?",
@@ -7136,7 +7340,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the impulse response of the first-order system when a shifted version of the input signal is also included in the difference equation?",
@@ -7191,7 +7396,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the impulse response of the system in?",
@@ -7257,7 +7463,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "by definition, the difference equation must be satisfied by what for all values of?",
@@ -7301,7 +7508,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are weighted and shifted versions of the impulse response?",
@@ -7323,7 +7531,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can all other input signals be written as a superposition of?",
@@ -7367,7 +7576,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the system behave as if it is both linear and time-invariant?",
@@ -7378,7 +7588,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does iteration compute the corresponding output for using the assumption of initial rest?",
@@ -7433,7 +7644,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what makes the proof more complicated than the fir case?",
@@ -7466,7 +7678,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can we write the closed form expression for the rest of the sequence once the value for is known?",
@@ -7477,7 +7690,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the ratio between successive terms is what?",
@@ -7609,7 +7823,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what must be causal in the sense that the computation of the present output sample must not involve future samples?",
@@ -7686,7 +7901,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "substituting formulas into gives the and terms inside the sum will change the limits on what?",
@@ -7697,7 +7913,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what makes it possible to obtain a result?",
@@ -7895,7 +8112,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are the first few values tabulated here?",
@@ -8038,7 +8256,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the total duration of the input?",
@@ -8148,7 +8367,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are the two assumptions together called?",
@@ -8478,7 +8698,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how do the frequency response and impulse response of an iir filter change?",
@@ -8676,7 +8897,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what should be clear from the analysis that leads to the formula for?",
@@ -8720,7 +8942,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the term from both sides of the equation lead to?",
@@ -8742,7 +8965,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the general first-order case the general form of the first-order difference equation with feedback is what can we take to obtain?",
@@ -8885,7 +9109,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in section <unk>, we showed by iteration that the system's impulse response was what?",
@@ -9039,7 +9264,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do they all use the same number of multiplications and additions to compute exactly the same output from a given input?",
@@ -9094,7 +9320,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "why is it impossible to manipulate equations into one of the other forms by eliminating variables?",
@@ -9149,7 +9376,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many equations are there at all of the summing nodes?",
@@ -9468,7 +9696,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the system function of the feed-forward part of a block diagram?",
@@ -9490,7 +9719,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the product of two-transform system functions corresponds to the cascade of two systems?",
@@ -9633,7 +9863,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what holds the filter coefficients for the numerator and denominator polynomials?",
@@ -9644,7 +9875,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the statement implement?",
@@ -9721,7 +9953,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the process of inverse -transformation based on breaking the transform into a fraction?",
@@ -9732,7 +9965,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is possible by taking the inverse -transform?",
@@ -9743,7 +9977,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is it possible to go from the difference equation directly to the system function?",
@@ -9908,7 +10143,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "why is it desirable for an impulse response to die out?",
@@ -10216,7 +10452,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "why do we write the system function in terms of?",
@@ -10348,7 +10585,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be formed by multiplying the magnitude squared?",
@@ -10502,7 +10740,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "in section <unk> on p.<unk>, we showed that the frequency response of an fir system is related to what?",
@@ -10700,7 +10939,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are the plots of the magnitude and phase of over the region of the -plane?",
@@ -10997,7 +11237,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the defining equation for the iir digital filter?",
@@ -11118,7 +11359,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "to avoid both iteration and convolution, what procedure will work?",
@@ -11228,7 +11470,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the technique that we will use to find given in?",
@@ -11239,7 +11482,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is based on the observation that a rational function can be expressed as a sum of simpler rational functions?",
@@ -11261,7 +11505,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "equating the two numerators would give how many equations in the two?",
@@ -11272,7 +11517,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what would the two numerators give two equations in the two unknowns?",
@@ -11294,7 +11540,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "at to isolate, i.e., what is easy to see?",
@@ -11316,7 +11563,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can we write down the desired answer as?",
@@ -11371,7 +11619,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do you factor the denominator polynomial of and express the pole factors in the form for?",
@@ -11382,7 +11631,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "make a partial fraction expansion of into a sum of terms of the form write down the answer as what will always work if the poles,, are distinct?",
@@ -11393,7 +11643,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are distinct?",
@@ -11415,7 +11666,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many examples will we illustrate the use of this procedure with?",
@@ -11602,7 +11854,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is nonzero at entry 4 in table <unk>?",
@@ -11701,7 +11954,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what will be available for determining the impulse responses of second-order and higher-order systems?",
@@ -11767,7 +12021,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "determine the -transform of the input signal.",
@@ -11789,7 +12044,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what gives a specific numerical illustration?",
@@ -11910,7 +12166,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the inverse -transform method developed in section <unk>?",
@@ -11921,7 +12178,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is used to demonstrate an important point about stability, frequency response, and sinusoidal steady state response?",
@@ -12053,7 +12311,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "one term is proportional to an exponential sequence that is solely determined by what?",
@@ -12229,7 +12488,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what do we do if we want to change the angle of the pole?",
@@ -12471,7 +12731,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "if the poles lie outside the unit circle, the output grows exponentially, what happens?",
@@ -12702,7 +12963,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what implies that since both poles are inside the unit circle, the impulse response dies out?",
@@ -12823,7 +13085,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the poles may both be real or they may be a pair of what?",
@@ -12933,7 +13196,8 @@
         "time_stamps": [
             1681588255948
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is written in factored form as either of the two forms?",
@@ -14253,7 +14517,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "440 hertz (hz) is what frequency?",
@@ -14319,7 +14584,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a sound that will persist for a long time?",
@@ -14352,7 +14618,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what will die away quickly?",
@@ -14594,7 +14861,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are the familiar sine and cosine functions of trigonometry?",
@@ -14836,7 +15104,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are cosine functions plotted versus?",
@@ -15012,7 +15281,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the following equation gives two equivalent forms?",
@@ -15045,7 +15315,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the signal in oscillates between and called?",
@@ -15144,7 +15415,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the cyclic frequency and must have units of sec?",
@@ -15265,7 +15537,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the equality above holds for all values of what?",
@@ -15694,7 +15967,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the time where a positive peak occurs in fig.<unk>?",
@@ -15837,7 +16111,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be added to or subtracted from the phase shift to produce a final result between and?",
@@ -15980,7 +16255,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does plotting a continuous function require?",
@@ -16750,7 +17026,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what calculators and programs have these two sets of equations built in?",
@@ -19478,7 +19755,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can almost any signal represent as a sum of sinusoidal signals?",
@@ -19515,14 +19793,17 @@
     },
     {
         "query": "what was received with great skepticism by famous mathematicians?",
-        "frequency": 1,
+        "frequency": 2,
         "users": [
-            "mock"
+            "mock",
+            "unknown"
         ],
         "time_stamps": [
-            1681588255949
+            1681588255949,
+            1699310165368
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "who are the famous mathematicians of the world?",
@@ -19918,7 +20199,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "a signal may also be represented in terms of what?",
@@ -20050,7 +20332,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the frequency-domain representation simply give the information required to synthesize?",
@@ -20380,7 +20663,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "for a signal where we know the sinusoidal waveforms that comprise it, what procedure is straightforward?",
@@ -20435,7 +20719,8 @@
         "time_stamps": [
             1681588255949
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what involves writing an equation for the signal in the form of and picking off the amplitude, phase, and frequency of each of its rotating phasor components?",
@@ -21073,7 +21358,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how do musicians tune two instruments to the same pitch?",
@@ -21293,7 +21579,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the modulating signal has been superimposed as what?",
@@ -21568,7 +21855,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a music synthesis method based on?",
@@ -21689,7 +21977,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "a synthesized music passage was done by a student who took an early version of what instrument?",
@@ -21733,7 +22022,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what kind of view is very helpful in understanding the important issues in sampling?",
@@ -21964,7 +22254,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the sum of sinusoids with frequencies 1.2, 2, and 6 hz?",
@@ -22184,7 +22475,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are conjugates of complex amplitudes for the corresponding positive frequencies?",
@@ -23394,7 +23686,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what might be easier to do before doing the fourier integral on each of four different terms?",
@@ -23438,7 +23731,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be synthesized by using a sum of sinusoids?",
@@ -23867,7 +24161,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is shown in the spectrum for a square wave figure<unk>?",
@@ -24263,7 +24558,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the ideal triangle wave in fig.<unk>?",
@@ -24670,7 +24966,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the square wave and its fourier series coefficients are excepted for what?",
@@ -24989,7 +25286,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the best example of frequency changes?",
@@ -25198,7 +25496,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what does the notation use to indicate frequency content that changes with time?",
@@ -25363,7 +25662,8 @@
         "time_stamps": [
             1681588255950
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the ideal time-frequency diagram in figure<unk> specifies a rule for synthesizing what scale?",
@@ -29675,7 +29975,8 @@
         "time_stamps": [
             1681588255954
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is used routinely to set the timing of automobile engines?",
@@ -30434,7 +30735,8 @@
         "time_stamps": [
             1681588255954
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "at what rate is the strobe light applied?",
@@ -30522,7 +30824,8 @@
         "time_stamps": [
             1681588255954
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the horizontal axis is what?",
@@ -31435,7 +31738,8 @@
         "time_stamps": [
             1681588255954
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what color is the lower panel of fig.<unk>?",
@@ -32370,7 +32674,8 @@
         "time_stamps": [
             1681588255954
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what properties characterize a wide class of filters that are exceedingly important in both the continuous-time and the time-based filters?",
@@ -33118,7 +33423,8 @@
         "time_stamps": [
             1681588255955
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a filter that uses future values of the input called?",
@@ -35637,7 +35943,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is important if the filter is constructed using fixed-point arithmetic?",
@@ -35824,7 +36131,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "when an input is delayed (shifted by), the output is delayed by the same amount?",
@@ -35890,7 +36198,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be tested by checking the interchange of operations?",
@@ -35901,7 +36210,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a second simple example of a time-flip system?",
@@ -35978,7 +36288,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "linearity linear systems have the property that if and, then what must be true for any choice of the constants and?",
@@ -36011,7 +36322,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "if the input consists of a sum of scaled sequences, what is the corresponding output?",
@@ -36033,18 +36345,22 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "testing linearity by checking what?",
-        "frequency": 3,
+        "frequency": 4,
         "users": [
-            "mock"
+            "mock",
+            "unknown"
         ],
         "time_stamps": [
-            1681588255957
+            1681588255957,
+            1699305480369
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the linearity condition in is equivalent to what principle?",
@@ -36055,7 +36371,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the sum (superposition) of two or more scaled sequences?",
@@ -36176,7 +36493,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what branch of fig.<unk> is for comparison, we construct in the lower branch?",
@@ -36418,7 +36736,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can we write a whole family of?",
@@ -36440,7 +36759,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a linear combination of shifted impulse signals?",
@@ -39080,7 +39400,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is simple to write down an expression for given the difference equation?",
@@ -39542,7 +39863,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the frequency response of the first-difference system?",
@@ -39685,7 +40007,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how many periods show periodicity and conjugate symmetry of?",
@@ -39927,7 +40250,8 @@
         "time_stamps": [
             1681588255957
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are inputs called?",
@@ -40862,7 +41186,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can be incorporated into the phase by noting that whenever?",
@@ -41181,7 +41506,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "when is an integer, is a delay in fig.<unk>?",
@@ -43414,7 +43740,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is a unique relationship between and?",
@@ -43436,7 +43763,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can we form a third signal by subtraction?",
@@ -43568,7 +43896,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the denominator of the running-average filter?",
@@ -43689,7 +44018,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is an example of finite-length sequences?",
@@ -44041,7 +44371,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the correct sequence for a finite-length signal?",
@@ -44866,7 +45197,8 @@
         "time_stamps": [
             1681588255958
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "when we first studied sinusoids, the phase depended on what?",
@@ -47968,7 +48300,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the order of the window lpf in fig.<unk>(b)?",
@@ -48364,7 +48697,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is freqz followed by?",
@@ -48661,7 +48995,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are examples of tides and sun spot cycles?",
@@ -49068,7 +49403,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is nonzero only in the interval?",
@@ -50421,7 +50757,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "period is needed to explain properties such as what property?",
@@ -50784,7 +51121,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the dtft delay property?",
@@ -51378,7 +51716,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the dft a sampled version of?",
@@ -51884,7 +52223,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is given in table<unk> on p.<unk> for easy reference?",
@@ -51939,7 +52279,8 @@
         "time_stamps": [
             1681588255959
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what are included for completeness?",
@@ -52577,7 +52918,8 @@
         "time_stamps": [
             1681588255960
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "how can we convert dft coefficients into a dfs representation?",
@@ -52852,7 +53194,8 @@
         "time_stamps": [
             1681588255960
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the shortest period of a signal?",
@@ -52863,7 +53206,8 @@
         "time_stamps": [
             1681588255960
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what can we convert these dft coefficients into a dfs representation with?",
@@ -56350,7 +56694,8 @@
         "time_stamps": [
             1681588255960
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the result of all the dfts of the individual components?",
@@ -58242,7 +58587,8 @@
         "time_stamps": [
             1681588255961
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "the final string yaxis is needed to override what behavior?",
@@ -58682,7 +59028,8 @@
         "time_stamps": [
             1681588255961
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what structure can be adopted to decompose two dfts into four -point dft's?",
@@ -58913,7 +59260,8 @@
         "time_stamps": [
             1681588255961
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is radix-2 fft when is a power of two?",
@@ -60651,7 +60999,8 @@
         "time_stamps": [
             1681588255961
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "we know from the delay property of section <unk> that multiplies to produce for any finite-length sequence?",
@@ -63269,7 +63618,8 @@
         "time_stamps": [
             1681588255961
         ],
-        "response": null
+        "response": null,
+        "likelihood": null
     },
     {
         "query": "what is the order of the -transform polynomial?",
