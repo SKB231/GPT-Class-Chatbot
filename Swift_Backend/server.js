@@ -7,6 +7,7 @@ require("dotenv").config();
 const httpServerObj = startHttpServer();
 // create a SocketIO instance to handle socket connections
 const io = require("socket.io")(httpServerObj);
+const {createMessages} = require('./firebase.js');
 
 const Chat = require("./Utilities/RunOpenAIPrompt");
 
@@ -24,7 +25,8 @@ io.on("connection", (socket) => {
   connections.push(socket);
   console.log("%s sockets are connected.", connections.length);
 
-  let chatInstance = new Chat();
+  let chatInstance = new Chat();//load user's old chat from database??
+  createMessages('testUserID');
 
   socket.on("disconnect", () => {
     connections.splice(connections.indexOf(socket), 1);

@@ -1,14 +1,6 @@
-const {
-  initializeApp,
-  applicationDefault,
-  cert,
-} = require("firebase-admin/app");
-const {
-  getFirestore,
-  Timestamp,
-  FieldValue,
-} = require("firebase-admin/firestore");
-const serviceAccount = require("./service-key.json");
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, arrayUnion, getDoc, Timestamp, FieldValue } = require('firebase-admin/firestore');
+const serviceAccount = require('./service-key.json');
 
 initializeApp({
   credential: cert(serviceAccount),
@@ -55,6 +47,22 @@ async function getAllStudents() {
 async function addStudentData(googleID, messages, topics) {
   await studentData.doc(googleID).set({ googleID, messages, topics });
 }
+
+async function addMessage(userId, message){
+  const docRef = db.collection('allQueries').doc(userId);
+  await docRef.update({
+      messages: FieldValue.arrayUnion(message)
+  })
+}
+
+async function createMessages(userId){
+  const docRef = db.collection('allQueries').doc(userId);
+  await docRef.set({
+      messages: []
+  })
+}
+
+module.exports = {addMessage, createMessages};
 
 exports.addStudentData = addStudentData;
 exports.getStudentData = getStudentData;

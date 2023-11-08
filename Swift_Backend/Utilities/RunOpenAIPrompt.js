@@ -1,5 +1,6 @@
-const axios = require("axios");
-const url = "https://api.openai.com/v1/chat/completions";
+const axios = require('axios');
+const url = 'https://api.openai.com/v1/chat/completions';
+const {addMessage} = require('../firebase.js');
 
 const OPENAI_API_KEY = `${process.env.OPENAI_API_KEY}`;
 const fs = require("fs");
@@ -31,6 +32,7 @@ class Chat {
       role: role == "GPT" ? "system" : role,
       content: message,
     });
+      addMessage("testUserID", message);//from reese branch
   }
 
   getTextResponse = async (callback) => {
