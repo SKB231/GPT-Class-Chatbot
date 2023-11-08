@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23F2210A2AF98935005E4F5D /* VIP_CHATBOTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F221092AF98935005E4F5D /* VIP_CHATBOTApp.swift */; };
-		23F2210C2AF98935005E4F5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2210B2AF98935005E4F5D /* ContentView.swift */; };
-		23F2210E2AF98936005E4F5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F2210D2AF98936005E4F5D /* Assets.xcassets */; };
-		23F221122AF98936005E4F5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F221112AF98936005E4F5D /* Preview Assets.xcassets */; };
-		23F2211C2AF98936005E4F5D /* VIP_CHATBOTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2211B2AF98936005E4F5D /* VIP_CHATBOTTests.swift */; };
-		23F221262AF98936005E4F5D /* VIP_CHATBOTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F221252AF98936005E4F5D /* VIP_CHATBOTUITests.swift */; };
-		23F221282AF98936005E4F5D /* VIP_CHATBOTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F221272AF98936005E4F5D /* VIP_CHATBOTUITestsLaunchTests.swift */; };
+		2362450D2AFC397D006FBC61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2362450C2AFC397D006FBC61 /* GoogleService-Info.plist */; };
 		701E8E9529187AE800C7B744 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 701E8E9429187AE800C7B744 /* Realm */; };
 		701E8E9729187AE800C7B744 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 701E8E9629187AE800C7B744 /* RealmSwift */; };
 		701E8EA129188D6800C7B744 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E8EA029188D6800C7B744 /* UserData.swift */; };
@@ -21,7 +15,6 @@
 		701E8EA72918964C00C7B744 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 701E8EA62918964C00C7B744 /* Data.json */; };
 		E34856C029A70E26009640D2 /* SocketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34856BF29A70E26009640D2 /* SocketTest.swift */; };
 		E34856C329A71151009640D2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = E34856C229A71151009640D2 /* SocketIO */; };
-		E34B457E2AE19A9C005D8694 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34B457D2AE19A9C005D8694 /* GoogleService-Info.plist */; };
 		E36DFB5929BA2B2E008A6A23 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E36DFB5829BA2B2E008A6A23 /* FirebaseAuth */; };
 		E36DFB5C29BA2BAE008A6A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36DFB5B29BA2BAE008A6A23 /* AppDelegate.swift */; };
 		E36DFB5F29BA2C26008A6A23 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E36DFB5E29BA2C26008A6A23 /* GoogleSignIn */; };
@@ -72,22 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2362450C2AFC397D006FBC61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		23F221072AF98935005E4F5D /* VIP CHATBOT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VIP CHATBOT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		23F221092AF98935005E4F5D /* VIP_CHATBOTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_CHATBOTApp.swift; sourceTree = "<group>"; };
-		23F2210B2AF98935005E4F5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		23F2210D2AF98936005E4F5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		23F2210F2AF98936005E4F5D /* VIP_CHATBOT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VIP_CHATBOT.entitlements; sourceTree = "<group>"; };
-		23F221112AF98936005E4F5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23F221172AF98936005E4F5D /* VIP CHATBOTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VIP CHATBOTTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		23F2211B2AF98936005E4F5D /* VIP_CHATBOTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_CHATBOTTests.swift; sourceTree = "<group>"; };
 		23F221212AF98936005E4F5D /* VIP CHATBOTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VIP CHATBOTUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		23F221252AF98936005E4F5D /* VIP_CHATBOTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_CHATBOTUITests.swift; sourceTree = "<group>"; };
-		23F221272AF98936005E4F5D /* VIP_CHATBOTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIP_CHATBOTUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		701E8EA029188D6800C7B744 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		701E8EA229188D9B00C7B744 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		701E8EA62918964C00C7B744 /* Data.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = Data.json; sourceTree = "<group>"; };
 		E34856BF29A70E26009640D2 /* SocketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketTest.swift; sourceTree = "<group>"; };
-		E34B457D2AE19A9C005D8694 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E36DFB5B29BA2BAE008A6A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E36DFB6029BA2CC2008A6A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E36DFB6129BA3176008A6A23 /* +View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+View.swift"; sourceTree = "<group>"; };
@@ -160,43 +145,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		23F221082AF98935005E4F5D /* VIP CHATBOT */ = {
-			isa = PBXGroup;
-			children = (
-				23F221092AF98935005E4F5D /* VIP_CHATBOTApp.swift */,
-				23F2210B2AF98935005E4F5D /* ContentView.swift */,
-				23F2210D2AF98936005E4F5D /* Assets.xcassets */,
-				23F2210F2AF98936005E4F5D /* VIP_CHATBOT.entitlements */,
-				23F221102AF98936005E4F5D /* Preview Content */,
-			);
-			path = "VIP CHATBOT";
-			sourceTree = "<group>";
-		};
-		23F221102AF98936005E4F5D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				23F221112AF98936005E4F5D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		23F2211A2AF98936005E4F5D /* VIP CHATBOTTests */ = {
-			isa = PBXGroup;
-			children = (
-				23F2211B2AF98936005E4F5D /* VIP_CHATBOTTests.swift */,
-			);
-			path = "VIP CHATBOTTests";
-			sourceTree = "<group>";
-		};
-		23F221242AF98936005E4F5D /* VIP CHATBOTUITests */ = {
-			isa = PBXGroup;
-			children = (
-				23F221252AF98936005E4F5D /* VIP_CHATBOTUITests.swift */,
-				23F221272AF98936005E4F5D /* VIP_CHATBOTUITestsLaunchTests.swift */,
-			);
-			path = "VIP CHATBOTUITests";
-			sourceTree = "<group>";
-		};
 		E36DFB5A29BA2B7A008A6A23 /* JHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,9 +160,6 @@
 				EF55FC7828E3891300AC9375 /* newApp */,
 				EF55FC8A28E3891500AC9375 /* newAppTests */,
 				EF55FC9428E3891600AC9375 /* newAppUITests */,
-				23F221082AF98935005E4F5D /* VIP CHATBOT */,
-				23F2211A2AF98936005E4F5D /* VIP CHATBOTTests */,
-				23F221242AF98936005E4F5D /* VIP CHATBOTUITests */,
 				EF55FC7728E3891300AC9375 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -237,7 +182,7 @@
 			children = (
 				E36DFB6029BA2CC2008A6A23 /* Info.plist */,
 				E36DFB5A29BA2B7A008A6A23 /* JHelper */,
-				E34B457D2AE19A9C005D8694 /* GoogleService-Info.plist */,
+				2362450C2AFC397D006FBC61 /* GoogleService-Info.plist */,
 				701E8EA62918964C00C7B744 /* Data.json */,
 				EF55FC7928E3891300AC9375 /* newAppApp.swift */,
 				EF55FC7B28E3891300AC9375 /* LogIn.swift */,
@@ -465,8 +410,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F221122AF98936005E4F5D /* Preview Assets.xcassets in Resources */,
-				23F2210E2AF98936005E4F5D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +436,7 @@
 				E3B80AAC29DEF0C0006544CB /* logo.png in Resources */,
 				EF55FCA728E60C8D00AC9375 /* Storyboard.storyboard in Resources */,
 				701E8EA72918964C00C7B744 /* Data.json in Resources */,
-				E34B457E2AE19A9C005D8694 /* GoogleService-Info.plist in Resources */,
+				2362450D2AFC397D006FBC61 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,8 +461,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F2210C2AF98935005E4F5D /* ContentView.swift in Sources */,
-				23F2210A2AF98935005E4F5D /* VIP_CHATBOTApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +468,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F2211C2AF98936005E4F5D /* VIP_CHATBOTTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,8 +475,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F221282AF98936005E4F5D /* VIP_CHATBOTUITestsLaunchTests.swift in Sources */,
-				23F221262AF98936005E4F5D /* VIP_CHATBOTUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +624,6 @@
 		23F2212D2AF98936005E4F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -713,7 +650,6 @@
 		23F2212E2AF98936005E4F5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -739,7 +675,6 @@
 		23F221302AF98936005E4F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -765,7 +700,6 @@
 		23F221312AF98936005E4F5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
