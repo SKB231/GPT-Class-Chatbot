@@ -1,5 +1,5 @@
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+const { getFirestore, arrayUnion, getDoc, Timestamp, FieldValue } = require('firebase-admin/firestore');
 const serviceAccount = require('./service-key.json');
 
 initializeApp({
@@ -9,24 +9,22 @@ initializeApp({
 const db = getFirestore();
 let queries = db.collection('queries')
 
-function storeQuery(query) {
-    queries.add(query)
+
+async function addMessage(userId, message){
+    const docRef = db.collection('allQueries').doc(userId);
+    await docRef.update({
+        messages: FieldValue.arrayUnion(message)
+    })
 }
-  
-function storeQuery(user, query, response) {
-    queries.add({
-    query: query,
-    response: response,
-    time: FieldValue.serverTimestamp(),
-    user: user
-})
+
+async function createMessages(userId){
+    const docRef = db.collection('allQueries').doc(userId);
+    await docRef.set({
+        messages: []
+    })
 }
-  
-async function getUserQueries(user) {
-    userQueries = await queries.where('user', '==', user).get()
-    return userQueries
-}
-  
+
+module.exports = {addMessage, createMessages};
 // async function deleteUserQueries(user) {
 //     userQueries = await queries.where('user', '==', user).get() 
 //     const batchSize = userQueries.size;

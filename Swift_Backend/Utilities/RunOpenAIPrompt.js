@@ -1,5 +1,6 @@
 const axios = require('axios');
 const url = 'https://api.openai.com/v1/chat/completions';
+const {addMessage} = require('../firebase.js');
 
 const OPENAI_API_KEY = `${process.env.OPENAI_API_KEY}`;
 
@@ -23,6 +24,7 @@ class Chat {
   
     addMessage(role, message) {
       this.messages.push({"role": role, "content": message });
+      addMessage("testUserID", message);
     }
 
     getTextResponse = async (callback) => {

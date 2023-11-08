@@ -1,6 +1,7 @@
 const { registerQuery, autocomplete, writeDataToJson } = require("./database");
 require("dotenv").config();
 const io = require("socket.io")(process.env.PORT);
+const {createMessages} = require('./firebase.js');
 
 const Chat = require("./Utilities/RunOpenAIPrompt");
 
@@ -18,7 +19,8 @@ io.on("connection", (socket) => {
   connections.push(socket);
   console.log("%s sockets are connected.", connections.length);
 
-  let chatInstance = new Chat();
+  let chatInstance = new Chat();//load user's old chat from database??
+  createMessages('testUserID');
 
   socket.on("disconnect", () => {
     connections.splice(connections.indexOf(socket), 1);
@@ -42,6 +44,7 @@ io.on("connection", (socket) => {
     console.log(match)
     if (match && match[1] === "useGPT" && data.match(matchMessage)) {
       const message = data.substring(data.indexOf(" ") + 1);
+      console.log(message);
       chatInstance.addMessage("user", message);
       chatInstance.getTextResponse(callback);
     } else {
