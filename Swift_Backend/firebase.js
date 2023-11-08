@@ -48,6 +48,7 @@ async function addStudentData(googleID, messages, topics) {
   await studentData.doc(googleID).set({ googleID, messages, topics });
 }
 
+
 async function addMessage(userId, message){
   const docRef = db.collection('allQueries').doc(userId);
   await docRef.update({
@@ -55,14 +56,37 @@ async function addMessage(userId, message){
   })
 }
 
-async function createMessages(userId){
+async function checkExists(userId){
   const docRef = db.collection('allQueries').doc(userId);
-  await docRef.set({
-      messages: []
-  })
+  const doc = await docRef.get();
+  if (!doc.exists) {
+      //console.log('No such document!');
+      await docRef.set({
+          messages: []
+      })
+      return [];
+  } else {
+      //console.log('Document data:', doc.data().messages);//loads data correctly!
+      const pastMessages = await doc.data().messages;
+      return pastMessages;
+  }
 }
 
-module.exports = {addMessage, createMessages};
+module.exports = {addMessage, checkExists};
+// async function deleteUserQueries(user) {
+//     userQueries = await queries.where('user', '==', user).get() 
+//     const batchSize = userQueries.size;
+//     if (batchSize === 0) {
+//       // when there are no documents left, we are done
+//       resolve();
+//       return;
+//     }
+//     const batch = db.batch();
+//     userQueries.docs.forEach((doc) => { // executes only after above line of code
+//       batch.delete(doc.ref);
+//     });
+//     await batch.commit();
+// }
 
 exports.addStudentData = addStudentData;
 exports.getStudentData = getStudentData;
