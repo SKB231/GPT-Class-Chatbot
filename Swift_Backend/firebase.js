@@ -7,8 +7,22 @@ initializeApp({
 });
 
 const db = getFirestore();
-let queries = db.collection('queries')
 
+async function checkExists(userId){
+    const docRef = db.collection('allQueries').doc(userId);
+    const doc = await docRef.get();
+    if (!doc.exists) {
+        //console.log('No such document!');
+        await docRef.set({
+            messages: []
+        })
+        return [];
+    } else {
+        //console.log('Document data:', doc.data().messages);//loads data correctly!
+        const pastMessages = await doc.data().messages;
+        return pastMessages;
+    }
+}
 
 async function addMessage(userId, message){
     const docRef = db.collection('allQueries').doc(userId);
@@ -17,14 +31,7 @@ async function addMessage(userId, message){
     })
 }
 
-async function createMessages(userId){
-    const docRef = db.collection('allQueries').doc(userId);
-    await docRef.set({
-        messages: []
-    })
-}
-
-module.exports = {addMessage, createMessages};
+module.exports = {addMessage, checkExists};
 // async function deleteUserQueries(user) {
 //     userQueries = await queries.where('user', '==', user).get() 
 //     const batchSize = userQueries.size;

@@ -1,7 +1,7 @@
 const { registerQuery, autocomplete, writeDataToJson } = require("./database");
 require("dotenv").config();
 const io = require("socket.io")(process.env.PORT);
-const {createMessages} = require('./firebase.js');
+const {checkExists} = require('./firebase.js');
 
 const Chat = require("./Utilities/RunOpenAIPrompt");
 
@@ -19,8 +19,20 @@ io.on("connection", (socket) => {
   connections.push(socket);
   console.log("%s sockets are connected.", connections.length);
 
-  let chatInstance = new Chat();//load user's old chat from database??
-  createMessages('testUserID');
+  let chatInstance = new Chat();//constructor: initialized with {"role": "system", "content": instructions}
+  checkExists("testUserID").then(pastMessages =>{
+    //chatInstance.messages = pastMessages; does not hold roles
+    for (let i=0;i<pastMessages.length;i++){
+      chatInstance.messages.push({"role": "user", "content": pastMessages[i] });
+    }
+    /*
+    for (let i=0;i<chatInstance.messages.length;i++){
+      console.log("message: "+ chatInstance.messages[i].role + chatInstance.messages[i].content);
+    }
+    */
+  })
+
+  
 
   socket.on("disconnect", () => {
     connections.splice(connections.indexOf(socket), 1);
