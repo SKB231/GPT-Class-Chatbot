@@ -5,6 +5,7 @@ This repository tracks the development for a iOS GPTChatBot. This is meant to be
 - Shreekrishna R Bhat
 - Phillip Phanhthourath
 - Reese Wang
+- Tom Thayyil Thomas
 
 ## Project running instructions:
 To setup run the project we need to do two things:
