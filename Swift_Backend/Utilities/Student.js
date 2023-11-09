@@ -5,9 +5,9 @@ class Student {
         this.topics = []// [(topicName, time), ]
     }
 
-       appendMessage(params) {
+    appendMessage(params) {
         this.messages.push(params);
-       }
+    }
 
     addTopic(topic, time) {
         this.topics.push({topic, time});
