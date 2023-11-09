@@ -22,7 +22,10 @@ class Student {
     }
 
     function deserialize() {
-
+        const parsedData = JSON.parse(data);
+        this.googleID = parsedData.googleID;
+        this.messages = parsedData.messages;
+        this.topics = parsedData.topics;
     }
     
 
