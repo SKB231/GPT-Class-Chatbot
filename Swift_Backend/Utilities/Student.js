@@ -5,16 +5,20 @@ class Student {
         this.topics = []// [(topicName, time), ]
     }
 
-    function appendMessage(params) {
-        // adds 
+       appendMessage(params) {
+        this.messages.push(params);
+       }
+
+    addTopic(topic, time) {
+        this.topics.push({topic, time});
     }
 
-    function addTopic(topic, time) {
-
-    }
-
-    function serialize() {
-
+    serialize() {
+        return JSON.stringify({
+            googleID: this.googleID,
+            messages: this.messages,
+            topics: this.topics,
+        });
     }
 
     function deserialize() {
