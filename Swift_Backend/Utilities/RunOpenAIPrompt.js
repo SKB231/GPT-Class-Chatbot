@@ -27,15 +27,15 @@ class Chat {
     this.messages = [{ role: "system", content: instructions }];
   }
 
-  addMessage(role, message) {
+  addMessage(role, message, userId) {
     this.messages.push({
       role: role == "GPT" ? "system" : role,
       content: message,
     });
-      addMessage("testUserID", message);//from reese branch
+    addMessage(userId, message);//add to database
   }
 
-  getTextResponse = async (callback) => {
+  getTextResponse = async (callback, userId) => {
     console.log("===============XXXXXX==============");
     console.log(this.messages);
     this.messages.forEach((message) => {
@@ -112,7 +112,7 @@ class Chat {
           chatResponseContent = response.data.choices[0].message.content;
         }
 
-        this.addMessage("GPT", chatResponseContent);
+        this.addMessage("GPT", chatResponseContent, userId);
         callback(chatResponseContent);
         return chatResponseContent;
       })
