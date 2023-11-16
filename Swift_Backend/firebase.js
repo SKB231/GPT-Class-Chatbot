@@ -51,6 +51,13 @@ async function addStudentData(googleID, messages, topics) {
 
 async function addMessage(userId, message){
   const docRef = db.collection('allQueries').doc(userId);
+  const doc = await docRef.get();
+  if (!doc.exists) {
+    //console.log('No such document!');
+    await docRef.set({
+        messages: []
+    })
+  }
   await docRef.update({
       messages: FieldValue.arrayUnion(message)
   })
