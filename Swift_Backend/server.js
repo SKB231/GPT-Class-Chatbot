@@ -26,18 +26,19 @@ io.on("connection", (socket) => {
   console.log("%s sockets are connected.", connections.length);
 
   let chatInstance = new Chat();//constructor: initialized with {"role": "system", "content": instructions}
+  /*
   checkExists("testUserID").then(pastMessages =>{
     //chatInstance.messages = pastMessages; does not hold roles
     for (let i=0;i<pastMessages.length;i++){
       chatInstance.messages.push({"role": "user", "content": pastMessages[i] });
     }
-    /*
+    
     for (let i=0;i<chatInstance.messages.length;i++){
       console.log("message: "+ chatInstance.messages[i].role + chatInstance.messages[i].content);
     }
-    */
+    
   })
-
+  */
   
 
   socket.on("disconnect", () => {
@@ -69,8 +70,8 @@ io.on("connection", (socket) => {
     if (match && match[1] === "useGPT" && message.match(matchMessage)) {
 
       const messageWithoutPrefix = message.substring(message.indexOf(" ") + 1);
-      chatInstance.addMessage("user", messageWithoutPrefix);
-      chatInstance.getTextResponse(callback);
+      chatInstance.addMessage("user", messageWithoutPrefix, userID);
+      chatInstance.getTextResponse(callback, userID);
     } else {
       returnMessage = message;
 
